@@ -7,8 +7,11 @@ Data sources:
   - feed/v1/voices.json  — topic summaries + sample voices
   - feed/v1/heatmap.json — per-district aggregated stats
   - feed/v1/stage/*.json — individual voice entries in 60-second segments
+
+Re-runs skip already-downloaded stage files.
 """
 
+import csv
 import json
 import os
 import sys
@@ -61,12 +64,11 @@ def list_stage_files():
 
 
 def download_stage_file(name):
-    """Download a single stage JSON file and return its parsed content."""
+    """Download a single stage JSON file. Returns None if already cached."""
     filename = name.split("/")[-1]
     cache_path = STAGE_DIR / filename
     if cache_path.exists():
-        with open(cache_path) as f:
-            return json.load(f)
+        return None
     url = f"https://storage.googleapis.com/{BUCKET}/{name}"
     data = fetch_json(url)
     with open(cache_path, "w") as f:
@@ -95,7 +97,7 @@ def crawl():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     STAGE_DIR.mkdir(parents=True, exist_ok=True)
 
-    # 1. Fetch summary feeds
+    # 1. Fetch summary feeds (always refresh)
     print("Fetching voices.json...")
     voices_summary = fetch_json(f"{FEED_BASE}/voices.json")
     with open(OUTPUT_DIR / "voices.json", "w") as f:
@@ -116,44 +118,59 @@ def crawl():
         json.dump(live, f, ensure_ascii=False, indent=2)
     print(f"  Published total: {live['counts']['published_total']:,}")
 
-    # 2. List all stage segment files
+    # 2. List all stage segment files from bucket
     print("\nListing stage segment files...")
-    stage_files = list_stage_files()
-    print(f"  Found {len(stage_files):,} stage files")
+    all_stage_names = list_stage_files()
+    print(f"  Found {len(all_stage_names):,} stage files in bucket")
 
-    if not stage_files:
+    # Filter to only files we haven't downloaded yet
+    cached = {f.name for f in STAGE_DIR.glob("*.json")}
+    to_download = [n for n in all_stage_names if n.split("/")[-1] not in cached]
+    print(f"  Already cached: {len(cached):,}")
+    print(f"  To download: {len(to_download):,}")
+
+    if not all_stage_names:
         print("No stage files found.")
         return
 
-    # 3. Download and extract voices from each stage file
-    print("\nDownloading stage files and extracting voices...")
+    # 3. Download new stage files
+    if to_download:
+        print(f"\nDownloading {len(to_download):,} new stage files...")
+        errors = 0
+        for i, name in enumerate(to_download):
+            if (i + 1) % 500 == 0 or i == 0:
+                print(f"  Downloading {i + 1}/{len(to_download)}...")
+            try:
+                download_stage_file(name)
+            except Exception as e:
+                errors += 1
+                if errors <= 10:
+                    print(f"  Error on {name}: {e}")
+                elif errors == 11:
+                    print("  (suppressing further errors)")
+        print(f"  Download errors: {errors}")
+    else:
+        print("\nAll stage files already cached.")
+
+    # 4. Extract voices from all cached stage files
+    print("\nExtracting voices from all cached stage files...")
     all_voices = []
     seen_queue_numbers = set()
-    errors = 0
 
-    for i, name in enumerate(stage_files):
-        if (i + 1) % 500 == 0 or i == 0:
-            print(f"  Processing {i + 1}/{len(stage_files)}...")
-        try:
-            stage_data = download_stage_file(name)
-            voices = extract_voices_from_stage(stage_data)
-            for v in voices:
-                qn = v["queue_number"]
-                if qn and qn not in seen_queue_numbers:
-                    seen_queue_numbers.add(qn)
-                    all_voices.append(v)
-        except Exception as e:
-            errors += 1
-            if errors <= 10:
-                print(f"  Error on {name}: {e}")
-            elif errors == 11:
-                print("  (suppressing further errors)")
+    for i, sf in enumerate(sorted(STAGE_DIR.glob("*.json"))):
+        if (i + 1) % 5000 == 0:
+            print(f"  Processing {i + 1}...")
+        with open(sf) as f:
+            stage_data = json.load(f)
+        for v in extract_voices_from_stage(stage_data):
+            qn = v["queue_number"]
+            if qn and qn not in seen_queue_numbers:
+                seen_queue_numbers.add(qn)
+                all_voices.append(v)
 
-    print(f"\n  Total stage files processed: {len(stage_files):,}")
     print(f"  Unique voices extracted: {len(all_voices):,}")
-    print(f"  Errors: {errors}")
 
-    # 4. Sort by queue number and save
+    # 5. Sort by queue number and save
     all_voices.sort(key=lambda v: v.get("queue_number") or 0)
 
     output_path = OUTPUT_DIR / "all_voices.json"
@@ -161,9 +178,7 @@ def crawl():
         json.dump(all_voices, f, ensure_ascii=False, indent=2)
     print(f"\nSaved {len(all_voices):,} voices to {output_path}")
 
-    # 5. Also save as CSV for convenience
     csv_path = OUTPUT_DIR / "all_voices.csv"
-    import csv
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=[
             "queue_number", "district", "topic", "mood",
