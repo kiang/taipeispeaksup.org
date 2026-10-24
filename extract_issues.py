@@ -29,28 +29,51 @@ def main():
 
     print(f"Processing {len(stage_files):,} stage files...")
 
-    seen = set()
-    daily = defaultdict(list)
+    # First pass: collect the best time for each queue_number.
+    # Prefer the starts_at from non-replay entries (original submissions);
+    # fall back to the earliest starts_at from replay entries.
+    issues = {}
 
     for sf in stage_files:
         with open(sf) as f:
             data = json.load(f)
 
-        epoch = data.get("segment_epoch", 0)
-        dt = datetime.fromtimestamp(epoch, tz=TW)
-        time_str = dt.strftime("%H:%M:%S")
-        date_str = dt.strftime("%Y-%m-%d")
-
         for entry in data.get("schedule", []):
             qn = entry.get("queue_number")
-            if not qn or qn in seen:
+            if not qn:
                 continue
-            seen.add(qn)
-            daily[date_str].append({
-                "time": time_str,
-                "issue": (entry.get("content") or "").replace("\n", " "),
-                "nickname": entry.get("display_name", ""),
-            })
+
+            starts_at = entry.get("starts_at", "")
+            is_replay = entry.get("is_replay", False)
+
+            if qn not in issues:
+                issues[qn] = {
+                    "starts_at": starts_at,
+                    "is_replay": is_replay,
+                    "content": (entry.get("content") or "").replace("\n", " "),
+                    "display_name": entry.get("display_name", ""),
+                }
+            else:
+                prev = issues[qn]
+                if prev["is_replay"] and not is_replay:
+                    prev["starts_at"] = starts_at
+                    prev["is_replay"] = False
+                elif prev["is_replay"] and is_replay and starts_at < prev["starts_at"]:
+                    prev["starts_at"] = starts_at
+
+    # Group by date
+    daily = defaultdict(list)
+    for qn, info in issues.items():
+        if not info["starts_at"]:
+            continue
+        dt = datetime.fromisoformat(info["starts_at"]).astimezone(TW)
+        date_str = dt.strftime("%Y-%m-%d")
+        time_str = dt.strftime("%H:%M:%S")
+        daily[date_str].append({
+            "time": time_str,
+            "issue": info["content"],
+            "nickname": info["display_name"],
+        })
 
     for date_str in sorted(daily):
         rows = daily[date_str]
