@@ -1,0 +1,1259 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-24T17:30:04+00:00",
+  "top_topics": [
+    {
+      "code": "traffic",
+      "name": "交通",
+      "count": 576
+    },
+    {
+      "code": "environment",
+      "name": "環境",
+      "count": 504
+    },
+    {
+      "code": "labor",
+      "name": "勞工",
+      "count": 448
+    }
+  ],
+  "topics": [
+    {
+      "code": "traffic",
+      "name": "交通",
+      "count": 15402
+    },
+    {
+      "code": "repair",
+      "name": "城市修繕",
+      "count": 6587
+    },
+    {
+      "code": "safety",
+      "name": "公共安全",
+      "count": 1704
+    },
+    {
+      "code": "childcare",
+      "name": "育兒",
+      "count": 2512
+    },
+    {
+      "code": "education",
+      "name": "教育",
+      "count": 3756
+    },
+    {
+      "code": "eldercare",
+      "name": "長照",
+      "count": 1107
+    },
+    {
+      "code": "medical",
+      "name": "醫療",
+      "count": 829
+    },
+    {
+      "code": "foodsafety",
+      "name": "食安",
+      "count": 1317
+    },
+    {
+      "code": "labor",
+      "name": "勞工",
+      "count": 2755
+    },
+    {
+      "code": "economy",
+      "name": "經濟",
+      "count": 915
+    },
+    {
+      "code": "environment",
+      "name": "環境",
+      "count": 16291
+    },
+    {
+      "code": "culture",
+      "name": "文化",
+      "count": 2346
+    },
+    {
+      "code": "sports",
+      "name": "體育",
+      "count": 1169
+    },
+    {
+      "code": "tourism",
+      "name": "觀光",
+      "count": 2339
+    },
+    {
+      "code": "cityadmin",
+      "name": "市政",
+      "count": 2942
+    },
+    {
+      "code": "publicorder",
+      "name": "治安",
+      "count": 1286
+    },
+    {
+      "code": "diplomacy",
+      "name": "外交",
+      "count": 391
+    },
+    {
+      "code": "other",
+      "name": "其他",
+      "count": 7252
+    }
+  ],
+  "voices": {
+    "all": [
+      {
+        "label": "Leon C.H  w∞",
+        "district": "大安",
+        "topic": "交通",
+        "mood": "angry",
+        "content": "我的市長你知道嗎！明颱風已經過了現在的我想要騎Ubike回家竟然都是暫停營運狀態所以我必須用走的回家"
+      },
+      {
+        "label": "No.70,899",
+        "district": "信義",
+        "topic": "其他",
+        "mood": "worried",
+        "content": "希望未來市府重視動物保護，強化虐待案件查緝、救援與預防，嚴禁非法犬肉交易，加強移工法規宣導"
+      },
+      {
+        "label": "徐若萱、昇安媽咪",
+        "district": "大安",
+        "topic": "其他",
+        "mood": "positive",
+        "content": "運動平權\n友善籃框"
+      },
+      {
+        "label": "No.70,897",
+        "district": "士林",
+        "topic": "體育",
+        "mood": "hopeful",
+        "content": "有一個女生有提到潛水游泳池的問題，我覺得沈市長應該去台中的水立方參觀看看，台北市實在太需要深水泳池。"
+      }
+    ],
+    "other": [
+      {
+        "label": "No.70,899",
+        "district": "信義",
+        "topic": "其他",
+        "mood": "worried",
+        "content": "希望未來市府重視動物保護，強化虐待案件查緝、救援與預防，嚴禁非法犬肉交易，加強移工法規宣導"
+      },
+      {
+        "label": "徐若萱、昇安媽咪",
+        "district": "大安",
+        "topic": "其他",
+        "mood": "positive",
+        "content": "運動平權\n友善籃框"
+      },
+      {
+        "label": "No.70,892",
+        "district": "大安",
+        "topic": "其他",
+        "mood": "angry",
+        "content": "台北新北租屋已過於不合理多數房東轉嫁租補，租補機制也不合理，社宅數量不足，租屋市場畸形空間違法"
+      },
+      {
+        "label": "No.70,881",
+        "district": "大安",
+        "topic": "其他",
+        "mood": "caring",
+        "content": "今經過信義安和行人動線必聞到的吸煙區。若打造類似公車亭、半開放朝向馬路的吸煙區會不會讓煙味往車道稀釋"
+      }
+    ],
+    "traffic": [
+      {
+        "label": "Leon C.H  w∞",
+        "district": "大安",
+        "topic": "交通",
+        "mood": "angry",
+        "content": "我的市長你知道嗎！明颱風已經過了現在的我想要騎Ubike回家竟然都是暫停營運狀態所以我必須用走的回家"
+      },
+      {
+        "label": "No.70,895",
+        "district": "中正",
+        "topic": "交通",
+        "mood": "worried",
+        "content": "代轉機車格，常常在對向車道的直線道路上，比如和平東轉羅斯福或和平東轉師大，平常騎車上班，覺得非常危險"
+      },
+      {
+        "label": "No.70,894",
+        "district": "內湖",
+        "topic": "交通",
+        "mood": "angry",
+        "content": "過了12年了，請幫忙盡速完工捷運環東段舊宗路新湖一路的Y35舊宗捷運站完工。我們沒有下一個12年可等"
+      },
+      {
+        "label": "No.70,893",
+        "district": "內湖",
+        "topic": "交通",
+        "mood": "angry",
+        "content": "已過12年了請盡快進行捷運環狀線東環段舊宗Y35站完工通車改善上下班時間內湖舊宗路新湖二路塞車狀況。"
+      }
+    ],
+    "repair": [
+      {
+        "label": "BrianLai",
+        "district": "信義",
+        "topic": "城市修繕",
+        "mood": "helpless",
+        "content": "道路旁需要雜草清除，分隔島有綠化與清潔的需要，這件事情有在落實，但常會感覺到頻率並不高。"
+      },
+      {
+        "label": "No.70,887",
+        "district": "大同",
+        "topic": "城市修繕",
+        "mood": "helpless",
+        "content": "台北的都更、社宅都改建的差不多，方方正、立面都一樣，真是太普通了！ 行政機關官員都應該去上美學課！"
+      },
+      {
+        "label": "吳小沛",
+        "district": "萬華",
+        "topic": "城市修繕",
+        "mood": "angry",
+        "content": "路不平，到處坑坑窪窪"
+      },
+      {
+        "label": "Vicki",
+        "district": "大同",
+        "topic": "城市修繕",
+        "mood": "caring",
+        "content": "台北路樹有人說是因為當初挖太淺所以容易倒，那能不能編預算挖深一點重新種植，颱風一來就倒掉真的好可惜"
+      }
+    ],
+    "safety": [
+      {
+        "label": "No.70,869",
+        "district": "萬華",
+        "topic": "公共安全",
+        "mood": "angry",
+        "content": "二、 密閉空間非法囤積大量高壓瓦斯桶，嚴重違反《消防法》引發致命氣爆危機\n該棟建築物全棟皆設有天然瓦"
+      },
+      {
+        "label": "No.70,864",
+        "district": "萬華",
+        "topic": "公共安全",
+        "mood": "angry",
+        "content": "臺北市政府單一陳情系統 正式陳情書\n【陳情主題】\n緊急檢舉勝園華厦臺北市萬華區西園路二段重大公共安全"
+      },
+      {
+        "label": "No.70,862",
+        "district": "萬華",
+        "topic": "公共安全",
+        "mood": "angry",
+        "content": "臺北市政府單一陳情系統 正式陳情書\n【陳情主題】\n緊急檢舉勝園華厦臺北市萬華區西園路二段重大公共安全"
+      },
+      {
+        "label": "No.70,859",
+        "district": "內湖",
+        "topic": "公共安全",
+        "mood": "worried",
+        "content": "餐廳在蓋違建廚房時，社區有些人經由1999檢舉，結果都未見拆除"
+      }
+    ],
+    "childcare": [
+      {
+        "label": "No.70,800",
+        "district": "士林",
+        "topic": "育兒",
+        "mood": "worried",
+        "content": "希望明確禁煙場所能加強禁煙取締\n尤其是騎樓與公園，身邊帶著孩子也不敢上前勸阻，只能默默吸著二手菸路過"
+      },
+      {
+        "label": "Sunny 써니",
+        "district": "南港",
+        "topic": "育兒",
+        "mood": "angry",
+        "content": "蔣萬安曾提出育兒家長提早一小時下班、市府補助企業，後續卻無聲無息！育兒政策不該淪為新聞標題和口號！"
+      },
+      {
+        "label": "No.70,640",
+        "district": "士林",
+        "topic": "育兒",
+        "mood": "worried",
+        "content": "增加在宅托育人員2歲以下的收托名額，照規範2歲以上都招不到，目前家長主要的托育需求是2歲以下為大宗"
+      },
+      {
+        "label": "No.70,622",
+        "district": "大同",
+        "topic": "育兒",
+        "mood": "worried",
+        "content": "請重視自閉症家庭：兒童心智科門診難掛，請設早療綠色通道；大眾誤解嚴重，請加強特教宣導、撕掉標籤"
+      }
+    ],
+    "education": [
+      {
+        "label": "No.70,871",
+        "district": "大安",
+        "topic": "教育",
+        "mood": "angry",
+        "content": "台大宿舍案，教育部與台大聯合欺負學生，舍監被判有罪，但沒給受害人幫助，不斷刁難，讓他撤告換畢業"
+      },
+      {
+        "label": "No.70,865",
+        "district": "大安",
+        "topic": "教育",
+        "mood": "helpless",
+        "content": "Puma要怎讓飼主覺得在這座城市養狗很幸福呢？像在柏林一樣帶狗出門不用擔心被排斥？尤其養中大型犬的人"
+      },
+      {
+        "label": "No.70,848",
+        "district": "松山",
+        "topic": "教育",
+        "mood": "helpless",
+        "content": "營養午餐調味不要因為營養要求而有特殊調味，例如：鈣質-》奶香培根花椰菜。希望食物調味符合國人口味。"
+      },
+      {
+        "label": "No.70,813",
+        "district": "士林",
+        "topic": "教育",
+        "mood": "hopeful",
+        "content": "我是學生，常常聽同學為了上學都要五點多起床趕公車、捷運，很辛苦。請問能把不強制去早自習修到國中小嗎？"
+      }
+    ],
+    "eldercare": [
+      {
+        "label": "No.70,854",
+        "district": "松山",
+        "topic": "長照",
+        "mood": "worried",
+        "content": "很多福利跟補助都跟單身的人無關，常是被忽略的一群。希望有更多福利是針對單身，尤其是單身年老後的照護。"
+      },
+      {
+        "label": "卍",
+        "district": "內湖",
+        "topic": "長照",
+        "mood": "hopeful",
+        "content": "建議每月發放1000敬老娛樂點。立法可在北市的運動中心合法打麻將用點數結算輸贏。可兌換福利用品或服務"
+      },
+      {
+        "label": "No.70,402",
+        "district": "北投",
+        "topic": "長照",
+        "mood": "angry",
+        "content": "目前老人長照大多依賴外籍移工，產生的問題也與日俱增，外傭懷孕。挑工。逃逸\n我們是不是能像新加坡學習"
+      },
+      {
+        "label": "No.70,332",
+        "district": "中正",
+        "topic": "長照",
+        "mood": "positive",
+        "content": "對於行動不便老人，可在各鄰里離家近的室內空間，舉辦適合的社區活動，讓坐輪椅的老人方便學習與社交。"
+      }
+    ],
+    "medical": [
+      {
+        "label": "No.70,830",
+        "district": "大安",
+        "topic": "醫療",
+        "mood": "caring",
+        "content": "希望能多關注、研究中風復健議題，讓中風患者獲得足夠的復健及治療，甚至能回歸原本生活、上班工作"
+      },
+      {
+        "label": "No.70,780",
+        "district": "士林",
+        "topic": "醫療",
+        "mood": "angry",
+        "content": "我是基層診所負責人\n10月1日該打的流感疫苗，拖到上週才勉強給我們領回來自己打，也不能抱怨，怕查水表"
+      },
+      {
+        "label": "No.70,753",
+        "district": "中山",
+        "topic": "醫療",
+        "mood": "helpless",
+        "content": "在健保法修法前，北市衛生局應該建立代位求償機制。向酒駕/毒駕/危駕肇事者求償醫療費用而非健保支付。"
+      },
+      {
+        "label": "No.70,749",
+        "district": "士林",
+        "topic": "醫療",
+        "mood": "helpless",
+        "content": "護理人員荒，未來是否具體計劃讓護理人員願意留在臨床照顧病人，與國外護理師相較，護病比、待遇等等"
+      }
+    ],
+    "foodsafety": [
+      {
+        "label": "No.70,886",
+        "district": "文山",
+        "topic": "食安",
+        "mood": "worried",
+        "content": "學校營養午餐，以我10年前左右學校職場的經驗，學校自辦午餐省錢又健康美味。（學校自有廚房、廚工）"
+      },
+      {
+        "label": "No.70,773",
+        "district": "士林",
+        "topic": "食安",
+        "mood": "hopeful",
+        "content": "改善營養午餐衛生問題"
+      },
+      {
+        "label": "No.70,767",
+        "district": "大安",
+        "topic": "食安",
+        "mood": "hopeful",
+        "content": "我是國小學童沐沐，希望市長聽到我的聲音現在學校大部分都是以米飯為主的營養午餐，希望可以米飯跟麵食平均"
+      },
+      {
+        "label": "No.70,646",
+        "district": "內湖",
+        "topic": "食安",
+        "mood": "positive",
+        "content": "你好帥！👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍"
+      }
+    ],
+    "labor": [
+      {
+        "label": "No.70,877",
+        "district": "大安",
+        "topic": "勞工",
+        "mood": "angry",
+        "content": "這些政府機構，選舉候選人颱風天出來視察好像恩情大於天，7-11員工有休假嗎，保全ktv員工有雙薪嗎？"
+      },
+      {
+        "label": "No.70,875",
+        "district": "文山",
+        "topic": "勞工",
+        "mood": "angry",
+        "content": "這些政府機構，選舉候選人颱風天出來視察好像恩情大於天，7-11員工有休假嗎，保全ktv員工有雙薪嗎？"
+      },
+      {
+        "label": "No.70,872",
+        "district": "中山",
+        "topic": "勞工",
+        "mood": "angry",
+        "content": "服務業的薪水跟工作時長實在爛的誇張，希望可以改善整體就業環境"
+      },
+      {
+        "label": "No.70,777",
+        "district": "大同",
+        "topic": "勞工",
+        "mood": "worried",
+        "content": "基本薪資越來越高，台北市是一線城市薪水卻不到一線城市該有的薪資🫠"
+      }
+    ],
+    "economy": [
+      {
+        "label": "No.70,896",
+        "district": "中山",
+        "topic": "經濟",
+        "mood": "angry",
+        "content": "想問市長對於商圈發展起來房東就拚命漲房租有什麼想法？好多商圈因此就死掉了師大、公館商圈、士林夜市都是"
+      },
+      {
+        "label": "ChiaSen佳生937543375",
+        "district": "大安",
+        "topic": "經濟",
+        "mood": "angry",
+        "content": "每年都會有很多的颱風，但是股市及金融不應因颱風放假，因爲都可以線上作業，請將未來股市跟颱風假脫鉤"
+      },
+      {
+        "label": "No.70,781",
+        "district": "松山",
+        "topic": "經濟",
+        "mood": "angry",
+        "content": "在台北市租屋真的很貴，租屋補助的部分是否能再讓民眾更有感也讓房東更有益 而不是讓房東把金額拉高:("
+      },
+      {
+        "label": "No.70,759",
+        "district": "士林",
+        "topic": "經濟",
+        "mood": "helpless",
+        "content": "1.徵收營業店面空屋稅，讓店面租金回歸市場機制。不讓房東總是在優勢一方，平等互惠。"
+      }
+    ],
+    "environment": [
+      {
+        "label": "No.70,889",
+        "district": "中正",
+        "topic": "環境",
+        "mood": "helpless",
+        "content": "可以不要一切用統包來推動工程嗎？ 這樣只是用預算來決定，專業與美學的尊重呢？"
+      },
+      {
+        "label": "Kelly",
+        "district": "士林",
+        "topic": "環境",
+        "mood": "caring",
+        "content": "行人垃圾桶。會丟家用垃圾的有的是是跟垃圾車錯過，很多是要省專用垃圾袋。垃圾桶投入口縮小小的給行人用"
+      },
+      {
+        "label": "No.70,883",
+        "district": "萬華",
+        "topic": "環境",
+        "mood": "angry",
+        "content": "台北許多路段和人行道，下雨天積水嚴重無法走過，建請蒐集這類路段資訊，改善人行道排水問題，嘉惠用路人！"
+      },
+      {
+        "label": "Angella Liu",
+        "district": "北投",
+        "topic": "環境",
+        "mood": "worried",
+        "content": "關渡平原有重要濕地及自然公園，足球場不認為是適合的地方，關渡農地、濕地與周邊綠地非常重要，可以加強推"
+      }
+    ],
+    "culture": [
+      {
+        "label": "張榮峰",
+        "district": "文山",
+        "topic": "文化",
+        "mood": "positive",
+        "content": "公共鋼琴在台南車站成功經驗期待能在台北捷運站呈現"
+      },
+      {
+        "label": "蘇宇賓(Bing)",
+        "district": "信義",
+        "topic": "文化",
+        "mood": "angry",
+        "content": "演唱會的票很難搶，黃牛影響非常大，有考慮成立二手轉禮交流論壇嗎？甚至可以請檢調埋伏在各大買賣平台釣魚"
+      },
+      {
+        "label": "陳明正",
+        "district": "大同",
+        "topic": "文化",
+        "mood": "helpless",
+        "content": "舊城區的塑造之4:城市的文化記憶不只是辦活動、放煙火，必須進行社區總體營造，擴大文化、藝術元素進駐。"
+      },
+      {
+        "label": "No.70,846",
+        "district": "大安",
+        "topic": "文化",
+        "mood": "hopeful",
+        "content": "台南車站的公共鋼琴好棒，台北市應該更多地方能放，新市長，交給你了！"
+      }
+    ],
+    "sports": [
+      {
+        "label": "No.70,897",
+        "district": "士林",
+        "topic": "體育",
+        "mood": "hopeful",
+        "content": "有一個女生有提到潛水游泳池的問題，我覺得沈市長應該去台中的水立方參觀看看，台北市實在太需要深水泳池。"
+      },
+      {
+        "label": "No.70,849",
+        "district": "士林",
+        "topic": "體育",
+        "mood": "caring",
+        "content": "市民打高球\n羽球連拿二面奧運金牌，希望運動中心能恢復有（以前有）golf 室內練習埸，提倡市民打高球"
+      },
+      {
+        "label": "潘資安 AndrewPan ⛪️",
+        "district": "文山",
+        "topic": "體育",
+        "mood": "hopeful",
+        "content": "台北很常下雨，應該要像南部一樣蓋很多風雨球場，照顧打球的朋友們。台灣人英文溝通能力欠缺，需要提升！！"
+      },
+      {
+        "label": "許皓宇",
+        "district": "士林",
+        "topic": "體育",
+        "mood": "helpless",
+        "content": "請問台灣基層體育專項化的問題體育班有存在的必要嗎如果您當選台北市能當全國領頭羊的角色真正振興體育嗎？"
+      }
+    ],
+    "tourism": [
+      {
+        "label": "No.70,876",
+        "district": "中正",
+        "topic": "觀光",
+        "mood": "caring",
+        "content": "打通現有的西門町地下街及台北車站地下街，讓國外旅客到台北車站後，可以直接走地下街去西門町觀光。"
+      },
+      {
+        "label": "No.70,819",
+        "district": "文山",
+        "topic": "觀光",
+        "mood": "caring",
+        "content": "沈伯洋市長！能不能有機會等大巨蛋店問題解決，能像高雄一樣常常開演唱會！我希望米津玄師可以來台灣台北開"
+      },
+      {
+        "label": "ChiaSen佳生937543375",
+        "district": "大安",
+        "topic": "觀光",
+        "mood": "caring",
+        "content": "琉公圳是否可以從新開發成為台北市的觀光河流，相信一定產生足夠觀光特色及歷史文化從新改變並升級台北"
+      },
+      {
+        "label": "No.70,774",
+        "district": "大同",
+        "topic": "觀光",
+        "mood": "caring",
+        "content": "捷運站的ATM提款機，可設置國外戶頭提領台幣的機型，方便外國訪客。因曾經在北門站遇過觀光客為此困擾。"
+      }
+    ],
+    "cityadmin": [
+      {
+        "label": "No.70,884",
+        "district": "信義",
+        "topic": "市政",
+        "mood": "hopeful",
+        "content": "去過台北市政府參加會議，裡面廁所又臭又土，像個沒有品味的未開發國家，可以從市府本身做個有品味的改變嗎"
+      },
+      {
+        "label": "No.70,882",
+        "district": "信義",
+        "topic": "市政",
+        "mood": "hopeful",
+        "content": "期待沈市長能從制度與辦公文化下手，改變公務人員「多ㄧ事不如少一事」的心態，成為尊重專業的首都市府！"
+      },
+      {
+        "label": "No.70,804",
+        "district": "內湖",
+        "topic": "市政",
+        "mood": "helpless",
+        "content": "市政debug松，團隊的口頭表達無法讓非專業人士理解，另外思考如何表述，才不會一直在專業圈子裡打轉。"
+      },
+      {
+        "label": "No.70,783",
+        "district": "信義",
+        "topic": "市政",
+        "mood": "worried",
+        "content": "希望可以整頓一下市政府公文系統，系統老舊、介面不友善與流程繁瑣、不合時宜的研考稽核制度，行政壓力又大"
+      }
+    ],
+    "publicorder": [
+      {
+        "label": "No.70,888",
+        "district": "文山",
+        "topic": "治安",
+        "mood": "worried",
+        "content": "原本 Threads 多洋流同溫層，這兩天突然出現大量惡意針對沈的帳號和留言，希望能解決"
+      },
+      {
+        "label": "No.70,809",
+        "district": "大安",
+        "topic": "治安",
+        "mood": "angry",
+        "content": "住家附近，尤其是自家股份有限公司那排的講什麼港股有的沒的一天到晚吵人"
+      },
+      {
+        "label": "No.70,802",
+        "district": "內湖",
+        "topic": "治安",
+        "mood": "worried",
+        "content": "台灣需要開發自己的社群軟體，抵擋駭客與網軍，才不會讓報料的貼文在臉書、脆上被中國控制的總部限制而噤聲"
+      },
+      {
+        "label": "吳佳芸♡Tina",
+        "district": "中山",
+        "topic": "治安",
+        "mood": "hopeful",
+        "content": "希望警/醫療/教育/勞安等各界都接受「創傷知情」培訓，以降低對家暴/性暴力倖存者造成二度傷害。"
+      }
+    ],
+    "diplomacy": [
+      {
+        "label": "Yin Ting👨‍👩‍👦‍👦",
+        "district": "士林",
+        "topic": "外交",
+        "mood": "caring",
+        "content": "穿褲子狂野狂野企業姑姑一起阿阿打五個學科日文"
+      },
+      {
+        "label": "No.70,191",
+        "district": "松山",
+        "topic": "外交",
+        "mood": "caring",
+        "content": "相信您對音樂、動漫、V家都不陌生！希望台北能有更多覆面系歌手的演唱會，例如Ado、Eve、ヨルシカ等"
+      },
+      {
+        "label": "No.70,189",
+        "district": "萬華",
+        "topic": "外交",
+        "mood": "hopeful",
+        "content": "台北的外語標籤不友善，離開捷運後，英日東南亞文的指標都沒有完整規，外國人來台灣也缺乏一站式的資訊中心"
+      },
+      {
+        "label": "No.69,865",
+        "district": "大安",
+        "topic": "外交",
+        "mood": "positive",
+        "content": "我覺得台北完全有資格更積極的形塑全球型的議題，過去很多全球串連的活動亞洲城市的代表都不是台北，很可惜"
+      }
+    ]
+  },
+  "by_district": {
+    "all": [
+      {
+        "label": "Leon C.H  w∞",
+        "district": "大安",
+        "topic": "交通",
+        "mood": "angry",
+        "content": "我的市長你知道嗎！明颱風已經過了現在的我想要騎Ubike回家竟然都是暫停營運狀態所以我必須用走的回家"
+      },
+      {
+        "label": "No.70,899",
+        "district": "信義",
+        "topic": "其他",
+        "mood": "worried",
+        "content": "希望未來市府重視動物保護，強化虐待案件查緝、救援與預防，嚴禁非法犬肉交易，加強移工法規宣導"
+      },
+      {
+        "label": "徐若萱、昇安媽咪",
+        "district": "大安",
+        "topic": "其他",
+        "mood": "positive",
+        "content": "運動平權\n友善籃框"
+      },
+      {
+        "label": "No.70,897",
+        "district": "士林",
+        "topic": "體育",
+        "mood": "hopeful",
+        "content": "有一個女生有提到潛水游泳池的問題，我覺得沈市長應該去台中的水立方參觀看看，台北市實在太需要深水泳池。"
+      },
+      {
+        "label": "No.70,896",
+        "district": "中山",
+        "topic": "經濟",
+        "mood": "angry",
+        "content": "想問市長對於商圈發展起來房東就拚命漲房租有什麼想法？好多商圈因此就死掉了師大、公館商圈、士林夜市都是"
+      },
+      {
+        "label": "No.70,895",
+        "district": "中正",
+        "topic": "交通",
+        "mood": "worried",
+        "content": "代轉機車格，常常在對向車道的直線道路上，比如和平東轉羅斯福或和平東轉師大，平常騎車上班，覺得非常危險"
+      }
+    ],
+    "zhongzheng": [
+      {
+        "label": "No.70,895",
+        "district": "中正",
+        "topic": "交通",
+        "mood": "worried",
+        "content": "代轉機車格，常常在對向車道的直線道路上，比如和平東轉羅斯福或和平東轉師大，平常騎車上班，覺得非常危險"
+      },
+      {
+        "label": "No.70,889",
+        "district": "中正",
+        "topic": "環境",
+        "mood": "helpless",
+        "content": "可以不要一切用統包來推動工程嗎？ 這樣只是用預算來決定，專業與美學的尊重呢？"
+      },
+      {
+        "label": "No.70,876",
+        "district": "中正",
+        "topic": "觀光",
+        "mood": "caring",
+        "content": "打通現有的西門町地下街及台北車站地下街，讓國外旅客到台北車站後，可以直接走地下街去西門町觀光。"
+      },
+      {
+        "label": "少穎",
+        "district": "中正",
+        "topic": "環境",
+        "mood": "helpless",
+        "content": "把樹種回來，可能要留意種樹地點，評估是否阻擋人行道、駕駛行車視線、招攬公車！"
+      },
+      {
+        "label": "No.70,852",
+        "district": "中正",
+        "topic": "公共安全",
+        "mood": "helpless",
+        "content": "我是外縣市的人，有時候去台北火車站外圍吸煙的人非常多，走過去都要一直繞來繞去迴避空氣中的煙味"
+      },
+      {
+        "label": "No.70,851",
+        "district": "中正",
+        "topic": "環境",
+        "mood": "helpless",
+        "content": "台北火車站大廳，週末太多外勞大聚集，這是台北市的大門耶，感覺很不好，請想辦法改善，可比較東京車站"
+      }
+    ],
+    "datong": [
+      {
+        "label": "No.70,887",
+        "district": "大同",
+        "topic": "城市修繕",
+        "mood": "helpless",
+        "content": "台北的都更、社宅都改建的差不多，方方正、立面都一樣，真是太普通了！ 行政機關官員都應該去上美學課！"
+      },
+      {
+        "label": "No.70,879",
+        "district": "大同",
+        "topic": "環境",
+        "mood": "worried",
+        "content": "北漂青年的居住正義，\n我們在台北讀書工作，\n但沒有合理的租金價格、\n沒有友善的住宅環境。"
+      },
+      {
+        "label": "陳明正",
+        "district": "大同",
+        "topic": "文化",
+        "mood": "helpless",
+        "content": "舊城區的塑造之4:城市的文化記憶不只是辦活動、放煙火，必須進行社區總體營造，擴大文化、藝術元素進駐。"
+      },
+      {
+        "label": "No.70,853",
+        "district": "大同",
+        "topic": "其他",
+        "mood": "worried",
+        "content": "社會住宅的所得限制，以雙薪家庭很容易超過，多是以沒有收入的長輩來申請，想在雙北立足的小家庭很難申請"
+      },
+      {
+        "label": "No.70,847",
+        "district": "大同",
+        "topic": "交通",
+        "mood": "angry",
+        "content": "迪化街一段歸綏街跟城隍廟之間有七十幾棟歷史性建築物這段路本來是禁止停車，可是現在停滿了機車汽車很混亂"
+      },
+      {
+        "label": "Kenyo Kuo",
+        "district": "大同",
+        "topic": "文化",
+        "mood": "angry",
+        "content": "迪化街一段歸綏街跟霞海城隍廟之間的店家騎樓都擺滿的東西，更是有攤販擺在馬路上，造成沒有行人走動的空間"
+      }
+    ],
+    "wanhua": [
+      {
+        "label": "No.70,883",
+        "district": "萬華",
+        "topic": "環境",
+        "mood": "angry",
+        "content": "台北許多路段和人行道，下雨天積水嚴重無法走過，建請蒐集這類路段資訊，改善人行道排水問題，嘉惠用路人！"
+      },
+      {
+        "label": "No.70,874",
+        "district": "萬華",
+        "topic": "其他",
+        "mood": "caring",
+        "content": "說白了，四年過了，蔣萬安你完全不了解台北市政。"
+      },
+      {
+        "label": "No.70,873",
+        "district": "萬華",
+        "topic": "其他",
+        "mood": "caring",
+        "content": "非常認真的聆聽蔣市長的每句話。結論:現任市長並不熟悉台北市政，在歷屆台北市長中最不熟悉的一位。"
+      },
+      {
+        "label": "No.70,869",
+        "district": "萬華",
+        "topic": "公共安全",
+        "mood": "angry",
+        "content": "二、 密閉空間非法囤積大量高壓瓦斯桶，嚴重違反《消防法》引發致命氣爆危機\n該棟建築物全棟皆設有天然瓦"
+      },
+      {
+        "label": "No.70,864",
+        "district": "萬華",
+        "topic": "公共安全",
+        "mood": "angry",
+        "content": "臺北市政府單一陳情系統 正式陳情書\n【陳情主題】\n緊急檢舉勝園華厦臺北市萬華區西園路二段重大公共安全"
+      },
+      {
+        "label": "No.70,862",
+        "district": "萬華",
+        "topic": "公共安全",
+        "mood": "angry",
+        "content": "臺北市政府單一陳情系統 正式陳情書\n【陳情主題】\n緊急檢舉勝園華厦臺北市萬華區西園路二段重大公共安全"
+      }
+    ],
+    "xinyi": [
+      {
+        "label": "No.70,899",
+        "district": "信義",
+        "topic": "其他",
+        "mood": "worried",
+        "content": "希望未來市府重視動物保護，強化虐待案件查緝、救援與預防，嚴禁非法犬肉交易，加強移工法規宣導"
+      },
+      {
+        "label": "BrianLai",
+        "district": "信義",
+        "topic": "城市修繕",
+        "mood": "helpless",
+        "content": "道路旁需要雜草清除，分隔島有綠化與清潔的需要，這件事情有在落實，但常會感覺到頻率並不高。"
+      },
+      {
+        "label": "No.70,884",
+        "district": "信義",
+        "topic": "市政",
+        "mood": "hopeful",
+        "content": "去過台北市政府參加會議，裡面廁所又臭又土，像個沒有品味的未開發國家，可以從市府本身做個有品味的改變嗎"
+      },
+      {
+        "label": "No.70,882",
+        "district": "信義",
+        "topic": "市政",
+        "mood": "hopeful",
+        "content": "期待沈市長能從制度與辦公文化下手，改變公務人員「多ㄧ事不如少一事」的心態，成為尊重專業的首都市府！"
+      },
+      {
+        "label": "No.70,870",
+        "district": "信義",
+        "topic": "其他",
+        "mood": "positive",
+        "content": "可以加強台北市的寵物友善機制嗎？例如增加寵物友善公車班次，開放大狗捷運落地之類的。"
+      },
+      {
+        "label": "蘇宇賓(Bing)",
+        "district": "信義",
+        "topic": "文化",
+        "mood": "angry",
+        "content": "演唱會的票很難搶，黃牛影響非常大，有考慮成立二手轉禮交流論壇嗎？甚至可以請檢調埋伏在各大買賣平台釣魚"
+      }
+    ],
+    "nangang": [
+      {
+        "label": "No.70,860",
+        "district": "南港",
+        "topic": "其他",
+        "mood": "positive",
+        "content": "PUMA頻道裡的競總成立、車掃等3～4hr的影片，建議剪出30-60min的精華版，更有助於點擊觀看"
+      },
+      {
+        "label": "No.70,843",
+        "district": "南港",
+        "topic": "環境",
+        "mood": "angry",
+        "content": "以前颱風天恢復街頭巷弄速度，隔天是看不出來，讚不絕口，如今美麗的家園變得滿目瘡痍鍋行牛步，問題出在哪"
+      },
+      {
+        "label": "Sunny 써니",
+        "district": "南港",
+        "topic": "育兒",
+        "mood": "angry",
+        "content": "蔣萬安曾提出育兒家長提早一小時下班、市府補助企業，後續卻無聲無息！育兒政策不該淪為新聞標題和口號！"
+      },
+      {
+        "label": "No.70,776",
+        "district": "南港",
+        "topic": "環境",
+        "mood": "worried",
+        "content": "台北自行車步道旁的基隆河，可否整頓的稍微乾淨點呢？很舒服的運動的一個步道，看過去的基隆河卻髒髒的。"
+      },
+      {
+        "label": "Jìe",
+        "district": "南港",
+        "topic": "交通",
+        "mood": "worried",
+        "content": "晚上如果下雨，路面會反光，開車很難看清楚路面標線，能否用螢光或其他更顯眼的方式標線？"
+      },
+      {
+        "label": "No.70,684",
+        "district": "南港",
+        "topic": "其他",
+        "mood": "hopeful",
+        "content": "建議北捷恢復靠右站立、左側禮讓急行宣導，尊重台北長年通勤默契，明明國際大都會也有這習慣為什麼要被迫改"
+      }
+    ],
+    "neihu": [
+      {
+        "label": "No.70,894",
+        "district": "內湖",
+        "topic": "交通",
+        "mood": "angry",
+        "content": "過了12年了，請幫忙盡速完工捷運環東段舊宗路新湖一路的Y35舊宗捷運站完工。我們沒有下一個12年可等"
+      },
+      {
+        "label": "No.70,893",
+        "district": "內湖",
+        "topic": "交通",
+        "mood": "angry",
+        "content": "已過12年了請盡快進行捷運環狀線東環段舊宗Y35站完工通車改善上下班時間內湖舊宗路新湖二路塞車狀況。"
+      },
+      {
+        "label": "蘇宇賓(Bing)",
+        "district": "內湖",
+        "topic": "交通",
+        "mood": "helpless",
+        "content": "內湖塞車，有考慮評估多做一條快速道路貫穿或增加計畫道路的方式嗎？可以參考大禹治水的疏導、截彎取直方式"
+      },
+      {
+        "label": "No.70,859",
+        "district": "內湖",
+        "topic": "公共安全",
+        "mood": "worried",
+        "content": "餐廳在蓋違建廚房時，社區有些人經由1999檢舉，結果都未見拆除"
+      },
+      {
+        "label": "No.70,822",
+        "district": "內湖",
+        "topic": "其他",
+        "mood": "caring",
+        "content": "你的宣傳服務，能考量到非網路重度使用者的族群，能同步收到最新資訊，表達心聲，而不是只以年輕人為對象"
+      },
+      {
+        "label": "No.70,820",
+        "district": "內湖",
+        "topic": "公共安全",
+        "mood": "worried",
+        "content": "台灣需要開發自己的社群軟體，抵擋駭客與網軍外才不會讓爆料的貼文在遭中共控制的meta社群被限發而噤聲"
+      }
+    ],
+    "daan": [
+      {
+        "label": "Leon C.H  w∞",
+        "district": "大安",
+        "topic": "交通",
+        "mood": "angry",
+        "content": "我的市長你知道嗎！明颱風已經過了現在的我想要騎Ubike回家竟然都是暫停營運狀態所以我必須用走的回家"
+      },
+      {
+        "label": "徐若萱、昇安媽咪",
+        "district": "大安",
+        "topic": "其他",
+        "mood": "positive",
+        "content": "運動平權\n友善籃框"
+      },
+      {
+        "label": "No.70,892",
+        "district": "大安",
+        "topic": "其他",
+        "mood": "angry",
+        "content": "台北新北租屋已過於不合理多數房東轉嫁租補，租補機制也不合理，社宅數量不足，租屋市場畸形空間違法"
+      },
+      {
+        "label": "No.70,881",
+        "district": "大安",
+        "topic": "其他",
+        "mood": "caring",
+        "content": "今經過信義安和行人動線必聞到的吸煙區。若打造類似公車亭、半開放朝向馬路的吸煙區會不會讓煙味往車道稀釋"
+      },
+      {
+        "label": "Liang",
+        "district": "大安",
+        "topic": "交通",
+        "mood": "caring",
+        "content": "希望台北參考挪威公車的時刻表管理方式，建立「準點發車、不得提前、延誤可理解、安全優先」的制度"
+      },
+      {
+        "label": "No.70,877",
+        "district": "大安",
+        "topic": "勞工",
+        "mood": "angry",
+        "content": "這些政府機構，選舉候選人颱風天出來視察好像恩情大於天，7-11員工有休假嗎，保全ktv員工有雙薪嗎？"
+      }
+    ],
+    "zhongshan": [
+      {
+        "label": "No.70,896",
+        "district": "中山",
+        "topic": "經濟",
+        "mood": "angry",
+        "content": "想問市長對於商圈發展起來房東就拚命漲房租有什麼想法？好多商圈因此就死掉了師大、公館商圈、士林夜市都是"
+      },
+      {
+        "label": "No.70,872",
+        "district": "中山",
+        "topic": "勞工",
+        "mood": "angry",
+        "content": "服務業的薪水跟工作時長實在爛的誇張，希望可以改善整體就業環境"
+      },
+      {
+        "label": "No.70,839",
+        "district": "中山",
+        "topic": "其他",
+        "mood": "caring",
+        "content": "希望這次民進黨議員都可當選，請問是否可知道自己選區的配票方式"
+      },
+      {
+        "label": "No.70,837",
+        "district": "中山",
+        "topic": "其他",
+        "mood": "positive",
+        "content": "建議競選團隊造勢車掃時，也可以發/拿國旗，或許讓藍營支持者更感親切"
+      },
+      {
+        "label": "No.70,828",
+        "district": "中山",
+        "topic": "環境",
+        "mood": "helpless",
+        "content": "過去有瓶罐回收機，能回收集點數，後來故障率太高，好不容易整理好的瓶罐常常撲空，希望市府主導推動。"
+      },
+      {
+        "label": "吳麗卿Ivy",
+        "district": "中山",
+        "topic": "文化",
+        "mood": "positive",
+        "content": "新北市三重市民，三重到台北很近，如果台北市變得很好玩，可以常常帶小孩去台北市玩，加油，一定要當選！！"
+      }
+    ],
+    "songshan": [
+      {
+        "label": "No.70,866",
+        "district": "松山",
+        "topic": "環境",
+        "mood": "angry",
+        "content": "垃圾桶的減少很不合乎邏輯，民生東路四段上只剩下一個，但民生圓環的屈臣氏不到200公尺竟然有兩個，"
+      },
+      {
+        "label": "No.70,854",
+        "district": "松山",
+        "topic": "長照",
+        "mood": "worried",
+        "content": "很多福利跟補助都跟單身的人無關，常是被忽略的一群。希望有更多福利是針對單身，尤其是單身年老後的照護。"
+      },
+      {
+        "label": "No.70,848",
+        "district": "松山",
+        "topic": "教育",
+        "mood": "helpless",
+        "content": "營養午餐調味不要因為營養要求而有特殊調味，例如：鈣質-》奶香培根花椰菜。希望食物調味符合國人口味。"
+      },
+      {
+        "label": "haohsin",
+        "district": "松山",
+        "topic": "環境",
+        "mood": "helpless",
+        "content": "如果有十項政策您認為是好的，而且前人的經驗也得證是好的，但是會得罪很大一片市民，請問您願意做其中幾件"
+      },
+      {
+        "label": "No.70,827",
+        "district": "松山",
+        "topic": "環境",
+        "mood": "worried",
+        "content": "面對與市府施政理念不同、溝通態度消極，或服務品質不如居民期待的基層里長，您會如何處理？"
+      },
+      {
+        "label": "No.70,808",
+        "district": "松山",
+        "topic": "交通",
+        "mood": "angry",
+        "content": "人行道一堆雜物，變電箱等等，車子轉彎時視野不夠廣很容易出車禍，台北市容也不用多創新，直接照抄日本就好"
+      }
+    ],
+    "shilin": [
+      {
+        "label": "No.70,897",
+        "district": "士林",
+        "topic": "體育",
+        "mood": "hopeful",
+        "content": "有一個女生有提到潛水游泳池的問題，我覺得沈市長應該去台中的水立方參觀看看，台北市實在太需要深水泳池。"
+      },
+      {
+        "label": "Kelly",
+        "district": "士林",
+        "topic": "環境",
+        "mood": "caring",
+        "content": "行人垃圾桶。會丟家用垃圾的有的是是跟垃圾車錯過，很多是要省專用垃圾袋。垃圾桶投入口縮小小的給行人用"
+      },
+      {
+        "label": "No.70,849",
+        "district": "士林",
+        "topic": "體育",
+        "mood": "caring",
+        "content": "市民打高球\n羽球連拿二面奧運金牌，希望運動中心能恢復有（以前有）golf 室內練習埸，提倡市民打高球"
+      },
+      {
+        "label": "No.70,840",
+        "district": "士林",
+        "topic": "交通",
+        "mood": "caring",
+        "content": "可否成立一些公車可同時載人和腳踏車的，這樣可服務一些想去騎山路賞景的人，例如陽明山等。"
+      },
+      {
+        "label": "No.70,831",
+        "district": "士林",
+        "topic": "其他",
+        "mood": "caring",
+        "content": "市長，能否將台語政策需求像您提出女性政策一樣，不立專法直接融入城市治理的各個層面？"
+      },
+      {
+        "label": "許皓宇",
+        "district": "士林",
+        "topic": "體育",
+        "mood": "helpless",
+        "content": "請問台灣基層體育專項化的問題體育班有存在的必要嗎如果您當選台北市能當全國領頭羊的角色真正振興體育嗎？"
+      }
+    ],
+    "beitou": [
+      {
+        "label": "Angella Liu",
+        "district": "北投",
+        "topic": "環境",
+        "mood": "worried",
+        "content": "關渡平原有重要濕地及自然公園，足球場不認為是適合的地方，關渡農地、濕地與周邊綠地非常重要，可以加強推"
+      },
+      {
+        "label": "純",
+        "district": "北投",
+        "topic": "其他",
+        "mood": "hopeful",
+        "content": "沈伯洋。拜託你，請你1o/30辯論時講話速度放慢，咬字清楚，謝謝"
+      },
+      {
+        "label": "No.70,762",
+        "district": "北投",
+        "topic": "市政",
+        "mood": "caring",
+        "content": "針對建商協助危老住宅都更：\n1.建商協助案件數列為商辦大樓建案核准的加分選項。\n2.市府提供貸款擔保"
+      },
+      {
+        "label": "No.70,761",
+        "district": "北投",
+        "topic": "城市修繕",
+        "mood": "angry",
+        "content": "變電箱/電線桿/信號箱/UBIKE租借/機車停車格全面移出人行道。"
+      },
+      {
+        "label": "No.70,756",
+        "district": "北投",
+        "topic": "市政",
+        "mood": "caring",
+        "content": "北市未來年度超徵稅收部份比例應用於獎勵就職於北市的警消醫護人力依年資發放，以留住資深技術人才。"
+      },
+      {
+        "label": "No.70,739",
+        "district": "北投",
+        "topic": "交通",
+        "mood": "angry",
+        "content": "一個城市最令人注意的第一印象是街道是否友善行人？交通是否便利（付費方式整合且多元）、停車是否有序不亂"
+      }
+    ],
+    "wenshan": [
+      {
+        "label": "張榮峰",
+        "district": "文山",
+        "topic": "文化",
+        "mood": "positive",
+        "content": "公共鋼琴在台南車站成功經驗期待能在台北捷運站呈現"
+      },
+      {
+        "label": "No.70,888",
+        "district": "文山",
+        "topic": "治安",
+        "mood": "worried",
+        "content": "原本 Threads 多洋流同溫層，這兩天突然出現大量惡意針對沈的帳號和留言，希望能解決"
+      },
+      {
+        "label": "No.70,886",
+        "district": "文山",
+        "topic": "食安",
+        "mood": "worried",
+        "content": "學校營養午餐，以我10年前左右學校職場的經驗，學校自辦午餐省錢又健康美味。（學校自有廚房、廚工）"
+      },
+      {
+        "label": "No.70,875",
+        "district": "文山",
+        "topic": "勞工",
+        "mood": "angry",
+        "content": "這些政府機構，選舉候選人颱風天出來視察好像恩情大於天，7-11員工有休假嗎，保全ktv員工有雙薪嗎？"
+      },
+      {
+        "label": "No.70,868",
+        "district": "文山",
+        "topic": "其他",
+        "mood": "helpless",
+        "content": "沒有小孩（育兒）又不到老年（長照），在中年的我們有什麼福利嗎？（心裡諮商？）"
+      },
+      {
+        "label": "No.70,835",
+        "district": "文山",
+        "topic": "公共安全",
+        "mood": "angry",
+        "content": "看到一段蔣昨天辛亥公園視察影片，我住附近，公園旁受訪地面對辛亥路，平日沒人站上去，作秀也作太假了吧"
+      }
+    ]
+  }
+}

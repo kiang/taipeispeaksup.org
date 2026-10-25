@@ -1,0 +1,1670 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-24T17:31:02+00:00",
+  "top_topics": [
+    {
+      "topic_code": "environment",
+      "name": "環境",
+      "category_code": "environment",
+      "issue_count": 16291
+    },
+    {
+      "topic_code": "traffic",
+      "name": "交通",
+      "category_code": "transport",
+      "issue_count": 15402
+    },
+    {
+      "topic_code": "repair",
+      "name": "城市修繕",
+      "category_code": "urban_safety",
+      "issue_count": 6588
+    }
+  ],
+  "districts": [
+    {
+      "district": "zhongzheng",
+      "total_issues": 6384,
+      "total_visitors": 4486,
+      "top_mood": {
+        "code": "angry",
+        "name": "生氣"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 1405,
+          "visitor_count": 1242,
+          "share": 0.2201
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 449,
+          "visitor_count": 415,
+          "share": 0.0703
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 218,
+          "visitor_count": 204,
+          "share": 0.0341
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 183,
+          "visitor_count": 166,
+          "share": 0.0287
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 319,
+          "visitor_count": 241,
+          "share": 0.05
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 118,
+          "visitor_count": 54,
+          "share": 0.0185
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 98,
+          "visitor_count": 91,
+          "share": 0.0154
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 100,
+          "visitor_count": 90,
+          "share": 0.0157
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 81,
+          "visitor_count": 72,
+          "share": 0.0127
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 73,
+          "visitor_count": 69,
+          "share": 0.0114
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 1567,
+          "visitor_count": 1364,
+          "share": 0.2455
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 270,
+          "visitor_count": 240,
+          "share": 0.0423
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 50,
+          "visitor_count": 50,
+          "share": 0.0078
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 251,
+          "visitor_count": 232,
+          "share": 0.0393
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 238,
+          "visitor_count": 198,
+          "share": 0.0373
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 160,
+          "visitor_count": 151,
+          "share": 0.0251
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 56,
+          "visitor_count": 50,
+          "share": 0.0088
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 748,
+          "visitor_count": 520,
+          "share": 0.1172
+        }
+      ]
+    },
+    {
+      "district": "datong",
+      "total_issues": 3542,
+      "total_visitors": 2388,
+      "top_mood": {
+        "code": "angry",
+        "name": "生氣"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 708,
+          "visitor_count": 598,
+          "share": 0.1999
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 421,
+          "visitor_count": 362,
+          "share": 0.1189
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 98,
+          "visitor_count": 87,
+          "share": 0.0277
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 98,
+          "visitor_count": 93,
+          "share": 0.0277
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 138,
+          "visitor_count": 122,
+          "share": 0.039
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 90,
+          "visitor_count": 73,
+          "share": 0.0254
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 45,
+          "visitor_count": 34,
+          "share": 0.0127
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 126,
+          "visitor_count": 117,
+          "share": 0.0356
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 39,
+          "visitor_count": 34,
+          "share": 0.011
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 50,
+          "visitor_count": 42,
+          "share": 0.0141
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 844,
+          "visitor_count": 703,
+          "share": 0.2383
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 160,
+          "visitor_count": 139,
+          "share": 0.0452
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 46,
+          "visitor_count": 45,
+          "share": 0.013
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 150,
+          "visitor_count": 131,
+          "share": 0.0423
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 123,
+          "visitor_count": 101,
+          "share": 0.0347
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 54,
+          "visitor_count": 39,
+          "share": 0.0152
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 16,
+          "visitor_count": 15,
+          "share": 0.0045
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 336,
+          "visitor_count": 288,
+          "share": 0.0949
+        }
+      ]
+    },
+    {
+      "district": "wanhua",
+      "total_issues": 5481,
+      "total_visitors": 3652,
+      "top_mood": {
+        "code": "worried",
+        "name": "擔心"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 733,
+          "visitor_count": 640,
+          "share": 0.1337
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 514,
+          "visitor_count": 456,
+          "share": 0.0938
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 133,
+          "visitor_count": 122,
+          "share": 0.0243
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 165,
+          "visitor_count": 137,
+          "share": 0.0301
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 198,
+          "visitor_count": 156,
+          "share": 0.0361
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 104,
+          "visitor_count": 86,
+          "share": 0.019
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 59,
+          "visitor_count": 43,
+          "share": 0.0108
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 80,
+          "visitor_count": 70,
+          "share": 0.0146
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 64,
+          "visitor_count": 56,
+          "share": 0.0117
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 50,
+          "visitor_count": 41,
+          "share": 0.0091
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 1508,
+          "visitor_count": 1261,
+          "share": 0.2751
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 253,
+          "visitor_count": 216,
+          "share": 0.0462
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 79,
+          "visitor_count": 64,
+          "share": 0.0144
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 266,
+          "visitor_count": 241,
+          "share": 0.0485
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 197,
+          "visitor_count": 150,
+          "share": 0.0359
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 247,
+          "visitor_count": 222,
+          "share": 0.0451
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 23,
+          "visitor_count": 21,
+          "share": 0.0042
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 808,
+          "visitor_count": 430,
+          "share": 0.1474
+        }
+      ]
+    },
+    {
+      "district": "xinyi",
+      "total_issues": 7238,
+      "total_visitors": 5044,
+      "top_mood": {
+        "code": "angry",
+        "name": "生氣"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 1362,
+          "visitor_count": 1170,
+          "share": 0.1882
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 649,
+          "visitor_count": 570,
+          "share": 0.0897
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 215,
+          "visitor_count": 200,
+          "share": 0.0297
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 247,
+          "visitor_count": 206,
+          "share": 0.0341
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 266,
+          "visitor_count": 199,
+          "share": 0.0368
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 77,
+          "visitor_count": 64,
+          "share": 0.0106
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 82,
+          "visitor_count": 72,
+          "share": 0.0113
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 119,
+          "visitor_count": 118,
+          "share": 0.0164
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 115,
+          "visitor_count": 99,
+          "share": 0.0159
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 118,
+          "visitor_count": 107,
+          "share": 0.0163
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 1610,
+          "visitor_count": 1393,
+          "share": 0.2224
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 276,
+          "visitor_count": 248,
+          "share": 0.0381
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 160,
+          "visitor_count": 156,
+          "share": 0.0221
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 316,
+          "visitor_count": 299,
+          "share": 0.0437
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 620,
+          "visitor_count": 477,
+          "share": 0.0857
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 97,
+          "visitor_count": 91,
+          "share": 0.0134
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 84,
+          "visitor_count": 77,
+          "share": 0.0116
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 825,
+          "visitor_count": 720,
+          "share": 0.114
+        }
+      ]
+    },
+    {
+      "district": "nangang",
+      "total_issues": 2566,
+      "total_visitors": 1859,
+      "top_mood": {
+        "code": "worried",
+        "name": "擔心"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 649,
+          "visitor_count": 562,
+          "share": 0.2529
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 233,
+          "visitor_count": 218,
+          "share": 0.0908
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 58,
+          "visitor_count": 51,
+          "share": 0.0226
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 121,
+          "visitor_count": 112,
+          "share": 0.0472
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 125,
+          "visitor_count": 109,
+          "share": 0.0487
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 47,
+          "visitor_count": 45,
+          "share": 0.0183
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 38,
+          "visitor_count": 34,
+          "share": 0.0148
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 40,
+          "visitor_count": 40,
+          "share": 0.0156
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 46,
+          "visitor_count": 46,
+          "share": 0.0179
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 39,
+          "visitor_count": 35,
+          "share": 0.0152
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 476,
+          "visitor_count": 418,
+          "share": 0.1855
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 102,
+          "visitor_count": 91,
+          "share": 0.0398
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 61,
+          "visitor_count": 54,
+          "share": 0.0238
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 78,
+          "visitor_count": 71,
+          "share": 0.0304
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 95,
+          "visitor_count": 81,
+          "share": 0.037
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 36,
+          "visitor_count": 29,
+          "share": 0.014
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 9,
+          "visitor_count": 9,
+          "share": 0.0035
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 313,
+          "visitor_count": 283,
+          "share": 0.122
+        }
+      ]
+    },
+    {
+      "district": "neihu",
+      "total_issues": 5902,
+      "total_visitors": 4024,
+      "top_mood": {
+        "code": "angry",
+        "name": "生氣"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 2153,
+          "visitor_count": 1839,
+          "share": 0.3648
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 534,
+          "visitor_count": 468,
+          "share": 0.0905
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 108,
+          "visitor_count": 101,
+          "share": 0.0183
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 237,
+          "visitor_count": 213,
+          "share": 0.0402
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 299,
+          "visitor_count": 255,
+          "share": 0.0507
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 85,
+          "visitor_count": 68,
+          "share": 0.0144
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 60,
+          "visitor_count": 52,
+          "share": 0.0102
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 111,
+          "visitor_count": 108,
+          "share": 0.0188
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 87,
+          "visitor_count": 79,
+          "share": 0.0147
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 71,
+          "visitor_count": 60,
+          "share": 0.012
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 1052,
+          "visitor_count": 878,
+          "share": 0.1782
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 125,
+          "visitor_count": 109,
+          "share": 0.0212
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 111,
+          "visitor_count": 98,
+          "share": 0.0188
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 79,
+          "visitor_count": 67,
+          "share": 0.0134
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 172,
+          "visitor_count": 139,
+          "share": 0.0291
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 54,
+          "visitor_count": 40,
+          "share": 0.0091
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 31,
+          "visitor_count": 23,
+          "share": 0.0053
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 533,
+          "visitor_count": 446,
+          "share": 0.0903
+        }
+      ]
+    },
+    {
+      "district": "daan",
+      "total_issues": 10416,
+      "total_visitors": 6720,
+      "top_mood": {
+        "code": "angry",
+        "name": "生氣"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 2247,
+          "visitor_count": 1882,
+          "share": 0.2157
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 867,
+          "visitor_count": 777,
+          "share": 0.0832
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 238,
+          "visitor_count": 221,
+          "share": 0.0228
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 391,
+          "visitor_count": 351,
+          "share": 0.0375
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 812,
+          "visitor_count": 615,
+          "share": 0.078
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 124,
+          "visitor_count": 111,
+          "share": 0.0119
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 136,
+          "visitor_count": 128,
+          "share": 0.0131
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 252,
+          "visitor_count": 229,
+          "share": 0.0242
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 117,
+          "visitor_count": 99,
+          "share": 0.0112
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 129,
+          "visitor_count": 117,
+          "share": 0.0124
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 2704,
+          "visitor_count": 2212,
+          "share": 0.2596
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 289,
+          "visitor_count": 248,
+          "share": 0.0277
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 127,
+          "visitor_count": 120,
+          "share": 0.0122
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 180,
+          "visitor_count": 163,
+          "share": 0.0173
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 460,
+          "visitor_count": 339,
+          "share": 0.0442
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 174,
+          "visitor_count": 121,
+          "share": 0.0167
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 61,
+          "visitor_count": 59,
+          "share": 0.0059
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 1108,
+          "visitor_count": 870,
+          "share": 0.1064
+        }
+      ]
+    },
+    {
+      "district": "zhongshan",
+      "total_issues": 6646,
+      "total_visitors": 4768,
+      "top_mood": {
+        "code": "angry",
+        "name": "生氣"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 1445,
+          "visitor_count": 1254,
+          "share": 0.2174
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 617,
+          "visitor_count": 560,
+          "share": 0.0928
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 193,
+          "visitor_count": 184,
+          "share": 0.029
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 229,
+          "visitor_count": 203,
+          "share": 0.0345
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 258,
+          "visitor_count": 215,
+          "share": 0.0388
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 89,
+          "visitor_count": 74,
+          "share": 0.0134
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 58,
+          "visitor_count": 55,
+          "share": 0.0087
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 122,
+          "visitor_count": 119,
+          "share": 0.0184
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 100,
+          "visitor_count": 87,
+          "share": 0.015
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 99,
+          "visitor_count": 93,
+          "share": 0.0149
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 1822,
+          "visitor_count": 1548,
+          "share": 0.2741
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 253,
+          "visitor_count": 237,
+          "share": 0.0381
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 118,
+          "visitor_count": 106,
+          "share": 0.0178
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 209,
+          "visitor_count": 188,
+          "share": 0.0314
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 223,
+          "visitor_count": 189,
+          "share": 0.0336
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 161,
+          "visitor_count": 146,
+          "share": 0.0242
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 30,
+          "visitor_count": 30,
+          "share": 0.0045
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 620,
+          "visitor_count": 511,
+          "share": 0.0933
+        }
+      ]
+    },
+    {
+      "district": "songshan",
+      "total_issues": 5440,
+      "total_visitors": 3313,
+      "top_mood": {
+        "code": "angry",
+        "name": "生氣"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 1068,
+          "visitor_count": 889,
+          "share": 0.1963
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 696,
+          "visitor_count": 443,
+          "share": 0.1279
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 123,
+          "visitor_count": 112,
+          "share": 0.0226
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 189,
+          "visitor_count": 159,
+          "share": 0.0347
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 429,
+          "visitor_count": 256,
+          "share": 0.0789
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 87,
+          "visitor_count": 61,
+          "share": 0.016
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 51,
+          "visitor_count": 39,
+          "share": 0.0094
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 107,
+          "visitor_count": 93,
+          "share": 0.0197
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 57,
+          "visitor_count": 52,
+          "share": 0.0105
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 60,
+          "visitor_count": 56,
+          "share": 0.011
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 1391,
+          "visitor_count": 1138,
+          "share": 0.2557
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 120,
+          "visitor_count": 113,
+          "share": 0.0221
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 146,
+          "visitor_count": 132,
+          "share": 0.0268
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 146,
+          "visitor_count": 133,
+          "share": 0.0268
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 208,
+          "visitor_count": 160,
+          "share": 0.0382
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 56,
+          "visitor_count": 43,
+          "share": 0.0103
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 31,
+          "visitor_count": 29,
+          "share": 0.0057
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 475,
+          "visitor_count": 355,
+          "share": 0.0873
+        }
+      ]
+    },
+    {
+      "district": "shilin",
+      "total_issues": 6193,
+      "total_visitors": 3794,
+      "top_mood": {
+        "code": "angry",
+        "name": "生氣"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 1497,
+          "visitor_count": 1183,
+          "share": 0.2417
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 650,
+          "visitor_count": 559,
+          "share": 0.105
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 142,
+          "visitor_count": 118,
+          "share": 0.0229
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 213,
+          "visitor_count": 185,
+          "share": 0.0344
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 313,
+          "visitor_count": 253,
+          "share": 0.0505
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 98,
+          "visitor_count": 89,
+          "share": 0.0158
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 73,
+          "visitor_count": 58,
+          "share": 0.0118
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 111,
+          "visitor_count": 104,
+          "share": 0.0179
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 62,
+          "visitor_count": 49,
+          "share": 0.01
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 106,
+          "visitor_count": 85,
+          "share": 0.0171
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 1376,
+          "visitor_count": 1079,
+          "share": 0.2222
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 226,
+          "visitor_count": 191,
+          "share": 0.0365
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 122,
+          "visitor_count": 112,
+          "share": 0.0197
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 285,
+          "visitor_count": 255,
+          "share": 0.046
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 224,
+          "visitor_count": 178,
+          "share": 0.0362
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 142,
+          "visitor_count": 64,
+          "share": 0.0229
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 21,
+          "visitor_count": 20,
+          "share": 0.0034
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 532,
+          "visitor_count": 431,
+          "share": 0.0859
+        }
+      ]
+    },
+    {
+      "district": "beitou",
+      "total_issues": 4204,
+      "total_visitors": 2775,
+      "top_mood": {
+        "code": "angry",
+        "name": "生氣"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 911,
+          "visitor_count": 784,
+          "share": 0.2167
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 456,
+          "visitor_count": 393,
+          "share": 0.1085
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 87,
+          "visitor_count": 81,
+          "share": 0.0207
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 212,
+          "visitor_count": 194,
+          "share": 0.0504
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 238,
+          "visitor_count": 195,
+          "share": 0.0566
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 95,
+          "visitor_count": 83,
+          "share": 0.0226
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 60,
+          "visitor_count": 55,
+          "share": 0.0143
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 63,
+          "visitor_count": 59,
+          "share": 0.015
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 51,
+          "visitor_count": 41,
+          "share": 0.0121
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 63,
+          "visitor_count": 46,
+          "share": 0.015
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 870,
+          "visitor_count": 725,
+          "share": 0.2069
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 145,
+          "visitor_count": 124,
+          "share": 0.0345
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 79,
+          "visitor_count": 70,
+          "share": 0.0188
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 225,
+          "visitor_count": 198,
+          "share": 0.0535
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 161,
+          "visitor_count": 128,
+          "share": 0.0383
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 45,
+          "visitor_count": 30,
+          "share": 0.0107
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 10,
+          "visitor_count": 10,
+          "share": 0.0024
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 433,
+          "visitor_count": 369,
+          "share": 0.103
+        }
+      ]
+    },
+    {
+      "district": "wenshan",
+      "total_issues": 6889,
+      "total_visitors": 3135,
+      "top_mood": {
+        "code": "worried",
+        "name": "擔心"
+      },
+      "topics": [
+        {
+          "topic_code": "traffic",
+          "name": "交通",
+          "issue_count": 1224,
+          "visitor_count": 1011,
+          "share": 0.1777
+        },
+        {
+          "topic_code": "repair",
+          "name": "城市修繕",
+          "issue_count": 502,
+          "visitor_count": 443,
+          "share": 0.0729
+        },
+        {
+          "topic_code": "safety",
+          "name": "公共安全",
+          "issue_count": 91,
+          "visitor_count": 81,
+          "share": 0.0132
+        },
+        {
+          "topic_code": "childcare",
+          "name": "育兒",
+          "issue_count": 227,
+          "visitor_count": 204,
+          "share": 0.033
+        },
+        {
+          "topic_code": "education",
+          "name": "教育",
+          "issue_count": 361,
+          "visitor_count": 298,
+          "share": 0.0524
+        },
+        {
+          "topic_code": "eldercare",
+          "name": "長照",
+          "issue_count": 93,
+          "visitor_count": 84,
+          "share": 0.0135
+        },
+        {
+          "topic_code": "medical",
+          "name": "醫療",
+          "issue_count": 69,
+          "visitor_count": 58,
+          "share": 0.01
+        },
+        {
+          "topic_code": "foodsafety",
+          "name": "食安",
+          "issue_count": 86,
+          "visitor_count": 77,
+          "share": 0.0125
+        },
+        {
+          "topic_code": "labor",
+          "name": "勞工",
+          "issue_count": 1936,
+          "visitor_count": 51,
+          "share": 0.281
+        },
+        {
+          "topic_code": "economy",
+          "name": "經濟",
+          "issue_count": 57,
+          "visitor_count": 47,
+          "share": 0.0083
+        },
+        {
+          "topic_code": "environment",
+          "name": "環境",
+          "issue_count": 1071,
+          "visitor_count": 863,
+          "share": 0.1555
+        },
+        {
+          "topic_code": "culture",
+          "name": "文化",
+          "issue_count": 127,
+          "visitor_count": 107,
+          "share": 0.0184
+        },
+        {
+          "topic_code": "sports",
+          "name": "體育",
+          "issue_count": 70,
+          "visitor_count": 62,
+          "share": 0.0102
+        },
+        {
+          "topic_code": "tourism",
+          "name": "觀光",
+          "issue_count": 154,
+          "visitor_count": 127,
+          "share": 0.0224
+        },
+        {
+          "topic_code": "cityadmin",
+          "name": "市政",
+          "issue_count": 221,
+          "visitor_count": 156,
+          "share": 0.0321
+        },
+        {
+          "topic_code": "publicorder",
+          "name": "治安",
+          "issue_count": 60,
+          "visitor_count": 48,
+          "share": 0.0087
+        },
+        {
+          "topic_code": "diplomacy",
+          "name": "外交",
+          "issue_count": 19,
+          "visitor_count": 16,
+          "share": 0.0028
+        },
+        {
+          "topic_code": "other",
+          "name": "其他",
+          "issue_count": 521,
+          "visitor_count": 402,
+          "share": 0.0756
+        }
+      ]
+    }
+  ]
+}
