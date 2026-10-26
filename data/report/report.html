@@ -1,0 +1,648 @@
+<title>台北市民意見分析</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #fafaf8;
+    --bg-card: #ffffff;
+    --fg: #1a1a1a;
+    --fg-secondary: #555550;
+    --fg-muted: #8a8a82;
+    --border: #e8e8e2;
+    --accent: #2a78d6;
+    --accent-light: #e8f0fb;
+    --orange: #eb6834;
+    --aqua: #1baf7a;
+    --yellow: #c98500;
+    --magenta: #d55181;
+    --violet: #6250d6;
+    --red: #d93526;
+    --green: #008300;
+    --surface-gap: #fafaf8;
+    /* mood colors */
+    --mood-angry: #d93526;
+    --mood-worried: #eb6834;
+    --mood-helpless: #8a8a82;
+    --mood-caring: #1baf7a;
+    --mood-hopeful: #2a78d6;
+    --mood-positive: #c98500;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #141413;
+      --bg-card: #1e1e1c;
+      --fg: #eaeae6;
+      --fg-secondary: #b0b0a8;
+      --fg-muted: #78786e;
+      --border: #2e2e2a;
+      --accent: #3987e5;
+      --accent-light: #1c2a3e;
+      --orange: #d95926;
+      --aqua: #199e70;
+      --yellow: #c98500;
+      --magenta: #d55181;
+      --violet: #9085e9;
+      --red: #e04636;
+      --green: #22a022;
+      --surface-gap: #141413;
+      --mood-angry: #e04636;
+      --mood-worried: #d95926;
+      --mood-helpless: #78786e;
+      --mood-caring: #199e70;
+      --mood-hopeful: #3987e5;
+      --mood-positive: #c98500;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #141413;
+    --bg-card: #1e1e1c;
+    --fg: #eaeae6;
+    --fg-secondary: #b0b0a8;
+    --fg-muted: #78786e;
+    --border: #2e2e2a;
+    --accent: #3987e5;
+    --accent-light: #1c2a3e;
+    --orange: #d95926;
+    --aqua: #199e70;
+    --yellow: #c98500;
+    --magenta: #d55181;
+    --violet: #9085e9;
+    --red: #e04636;
+    --green: #22a022;
+    --surface-gap: #141413;
+    --mood-angry: #e04636;
+    --mood-worried: #d95926;
+    --mood-helpless: #78786e;
+    --mood-caring: #199e70;
+    --mood-hopeful: #3987e5;
+    --mood-positive: #c98500;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans TC', system-ui, sans-serif;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    line-height: 1.6;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding-block: 2rem; }
+  h1 { font-size: 1.75rem; font-weight: 900; margin: 0 0 0.25rem; text-wrap: balance; }
+  h2 { font-size: 1.25rem; font-weight: 700; margin: 2.5rem 0 1rem; text-wrap: balance; color: var(--fg); }
+  h3 { font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--fg-secondary); }
+  p { margin: 0.5rem 0; color: var(--fg-secondary); }
+  .subtitle { color: var(--fg-muted); font-size: 0.875rem; margin: 0 0 2rem; }
+  .subtitle a { color: var(--accent); text-decoration: none; }
+
+  /* stat tiles */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 2rem; }
+  .stat { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+  .stat-value { font-size: 1.75rem; font-weight: 900; font-variant-numeric: tabular-nums; color: var(--fg); }
+  .stat-label { font-size: 0.75rem; color: var(--fg-muted); margin-top: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* chart cards */
+  .chart-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; }
+  .chart-card h3 { margin: 0 0 1rem; color: var(--fg); }
+  .chart-container { position: relative; width: 100%; }
+  .chart-container.bar-h { min-height: 420px; }
+  .chart-container.timeline { height: 280px; }
+  .chart-container.mood { height: 280px; }
+  .chart-container.district { min-height: 360px; }
+
+  .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 640px) { .chart-row { grid-template-columns: 1fr; } }
+
+  /* keyword pills */
+  .kw-section { margin-bottom: 1.5rem; }
+  .kw-topic { font-weight: 700; font-size: 0.875rem; color: var(--fg); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+  .kw-topic .count { font-weight: 400; color: var(--fg-muted); font-size: 0.75rem; }
+  .kw-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.75rem; }
+  .kw-pill { background: var(--accent-light); color: var(--accent); font-size: 0.75rem; padding: 2px 10px; border-radius: 100px; font-weight: 500; white-space: nowrap; }
+  .kw-pill .n { color: var(--fg-muted); font-weight: 400; margin-left: 4px; }
+
+  /* narrative sections */
+  .narrative { margin: 2rem 0; }
+  .narrative p { margin: 0.75rem 0; }
+  .finding { background: var(--bg-card); border-left: 3px solid var(--accent); padding: 1rem 1.25rem; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+  .finding strong { color: var(--fg); }
+  .finding-num { font-weight: 900; color: var(--accent); font-size: 0.875rem; margin-bottom: 0.25rem; }
+  .policy { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; }
+  .policy-title { font-weight: 700; color: var(--fg); margin-bottom: 0.25rem; }
+  .policy p { margin: 0.25rem 0; font-size: 0.875rem; }
+
+  /* tabs for topic detail */
+  .tab-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+  .tab-btn { background: none; border: 1px solid var(--border); border-radius: 100px; padding: 4px 14px; font-size: 0.8rem; font-family: inherit; color: var(--fg-secondary); cursor: pointer; transition: all 0.15s; }
+  .tab-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* table */
+  .district-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+  .district-table th { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 2px solid var(--border); color: var(--fg-muted); font-weight: 500; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .district-table td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); color: var(--fg-secondary); }
+  .district-table tr:hover td { background: var(--accent-light); }
+  .district-table .num { text-align: right; }
+  .overflow-x { overflow-x: auto; }
+
+  /* sample quotes */
+  .quotes { display: flex; flex-direction: column; gap: 8px; margin-top: 0.75rem; }
+  .quote { background: var(--bg); border-radius: 6px; padding: 0.75rem 1rem; position: relative; font-size: 0.85rem; line-height: 1.5; color: var(--fg-secondary); }
+  .quote::before { content: '"'; position: absolute; top: 4px; left: 8px; font-size: 1.5rem; color: var(--border); font-family: Georgia, serif; line-height: 1; }
+  .quote-text { padding-left: 1rem; }
+  .quote-meta { display: flex; gap: 8px; align-items: center; margin-top: 4px; font-size: 0.7rem; color: var(--fg-muted); }
+  .mood-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .mood-dot.angry { background: var(--mood-angry); }
+  .mood-dot.worried { background: var(--mood-worried); }
+  .mood-dot.helpless { background: var(--mood-helpless); }
+  .mood-dot.caring { background: var(--mood-caring); }
+  .mood-dot.hopeful { background: var(--mood-hopeful); }
+  .mood-dot.positive { background: var(--mood-positive); }
+  .district-expand { cursor: pointer; }
+  .district-expand td { transition: background 0.15s; }
+  .district-quotes { display: none; }
+  .district-quotes td { padding: 0.5rem 0.75rem; background: var(--bg); }
+  .district-expand.open + .district-quotes { display: table-row; }
+  .toggle-arrow { display: inline-block; transition: transform 0.2s; font-size: 0.7rem; margin-right: 4px; color: var(--fg-muted); }
+  .district-expand.open .toggle-arrow { transform: rotate(90deg); }
+</style>
+
+<div class="wrap">
+  <h1>台北市民意見分析報告</h1>
+  <p class="subtitle">資料來源：<a href="https://taipeispeaksup.org/" target="_blank" rel="noopener">市長你給我聽好了</a> ｜ 分析日期：2026-10-26 ｜ 70,900 則市民意見</p>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-value">70,900</div><div class="stat-label">總意見數</div></div>
+    <div class="stat"><div class="stat-value">37,830</div><div class="stat-label">參與市民</div></div>
+    <div class="stat"><div class="stat-value">18</div><div class="stat-label">議題類別</div></div>
+    <div class="stat"><div class="stat-value">12</div><div class="stat-label">行政區</div></div>
+  </div>
+
+  <!-- Executive summary -->
+  <h2>執行摘要</h2>
+  <div class="narrative">
+    <p>台北市民的意見已從單純的「抱怨」升級為對城市「系統性崩壞」的集體焦慮。市民群體的情緒基調是<strong>高度焦慮、無力感與對體制不公的憤怒</strong>。</p>
+    <p>核心痛點包括：<strong>居住成本失控的經濟危機、公共空間的髒亂與安全危機、社會支持體系的失能，以及城市文化主體性的焦慮。</strong></p>
+  </div>
+
+  <!-- Charts row 1: Topic + Mood -->
+  <h2>議題與情緒分布</h2>
+  <div class="chart-row">
+    <div class="chart-card">
+      <h3>議題類別分布</h3>
+      <div class="chart-container bar-h"><canvas id="topicChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>市民情緒分布</h3>
+      <div class="chart-container mood"><canvas id="moodChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="chart-card">
+    <h3>每日意見數量趨勢</h3>
+    <div class="chart-container timeline"><canvas id="timelineChart"></canvas></div>
+  </div>
+
+  <!-- District chart -->
+  <div class="chart-card">
+    <h3>各行政區意見數量</h3>
+    <div class="chart-container district"><canvas id="districtChart"></canvas></div>
+  </div>
+
+  <!-- Top 5 findings -->
+  <h2>五大結構性議題</h2>
+  <div class="finding"><div class="finding-num">01</div><strong>經濟與居住的生存危機</strong><p>房租與物價飆升，使年輕族群和中產階級無法在台北「落地生根」。居住正義、可負擔的社宅、勞工薪資穩定性，已成為生存底線問題。</p></div>
+  <div class="finding"><div class="finding-num">02</div><strong>城市秩序與環境的崩壞危機</strong><p>熱點區域（北車、萬華）的遊民、街友、髒亂、惡臭、違建等問題，嚴重影響城市觀光和生活品質。市民對「公共秩序」和「城市美學」有極高期待。</p></div>
+  <div class="finding"><div class="finding-num">03</div><strong>系統性安全與無障礙危機</strong><p>人行道被佔用、缺乏無障礙設施、交通工具混亂、老舊設施的結構風險。要求「全齡、無障礙、可預測」的城市環境。</p></div>
+  <div class="finding"><div class="finding-num">04</div><strong>社會支持與人本照護危機</strong><p>照顧者身心過度透支、長照資源難以取得、醫療資源分配不公、缺乏全世代的社會安全網。</p></div>
+  <div class="finding"><div class="finding-num">05</div><strong>身份認同與治理透明度危機</strong><p>市民要求政策制定透明、文化主體性的捍衛，以及對政府行政流程（都更、建管）的信任重建。</p></div>
+
+  <!-- Keywords by topic -->
+  <h2>各議題高頻關鍵詞</h2>
+  <div class="tab-bar" id="kwTabs"></div>
+  <div id="kwContent"></div>
+
+  <!-- District table -->
+  <h2>各行政區統計</h2>
+  <div class="overflow-x">
+    <table class="district-table">
+      <thead><tr><th>行政區</th><th class="num">意見數</th><th class="num">佔比</th><th>核心關注</th></tr></thead>
+      <tbody id="districtTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Mood analysis -->
+  <h2>情緒分析</h2>
+  <div class="narrative">
+    <p>市民情緒已超越單純的「不便」，源於一種<strong>「生活品質正在持續下降」</strong>的恐懼：</p>
+    <div class="finding"><strong>無力感</strong><p>感覺自己無法透過單一的投訴或投票來改變宏觀的結構性問題（房價、體制僵化）。</p></div>
+    <div class="finding"><strong>不信任感</strong><p>不信任政府的政策執行力、資源分配的公平性，以及體制能否真正保護弱勢群體。</p></div>
+    <div class="finding"><strong>急迫性</strong><p>所有訴求都帶有「現在必須改變」的急迫感，顯示市民已達忍耐極限。</p></div>
+  </div>
+
+  <!-- Policy recommendations -->
+  <h2>政策建議</h2>
+  <div class="policy"><div class="policy-title">1. 建立「居住正義」的政策防火牆</div><p>設立租金管制與透明化平台，積極推動公營社宅擴建。穩定年輕族群居住成本。</p></div>
+  <div class="policy"><div class="policy-title">2. 打造「全齡無障礙」的城市動線</div><p>啟動無障礙路徑優化計畫，將人行道、交通設施、公共設施的無障礙標準化、連貫化。</p></div>
+  <div class="policy"><div class="policy-title">3. 啟動「城市美學與秩序重塑」計畫</div><p>針對老舊商圈和交通樞紐實施美學化整頓，建立遊民的社會安置與就業輔導機制。</p></div>
+  <div class="policy"><div class="policy-title">4. 建立「全世代照護」的社會安全網</div><p>改革長照體系，將喘息服務和照顧者支持納入核心補助。建立社區預防醫療網絡。</p></div>
+  <div class="policy"><div class="policy-title">5. 強化「文化主體性」的城市品牌</div><p>重新定義台北文化敘事，將歷史、在地文化、自然景觀串聯成文化走廊。</p></div>
+  <div class="policy"><div class="policy-title">6. 提升公共資源透明度與問責制</div><p>建立政策進度追蹤與預算公開平台，讓市民即時追蹤政府重大專案進度。</p></div>
+  <div class="policy"><div class="policy-title">7. 實施「經濟紅利」的再分配機制</div><p>推動租金管制與產業轉型補助，為傳統商圈提供租金穩定機制和數位轉型輔導。</p></div>
+  <div class="policy"><div class="policy-title">8. 建立跨局處的緊急應變機制</div><p>針對大型公共設施建立跨部門危機應變演練機制，提升城市韌性。</p></div>
+</div>
+
+<script>
+const DATA = {
+  byTopic: [
+    { name: '環境', count: 16291 },
+    { name: '交通', count: 15402 },
+    { name: '其他', count: 7252 },
+    { name: '城市修繕', count: 6588 },
+    { name: '教育', count: 3756 },
+    { name: '市政', count: 2942 },
+    { name: '勞工', count: 2755 },
+    { name: '育兒', count: 2511 },
+    { name: '文化', count: 2346 },
+    { name: '觀光', count: 2339 },
+    { name: '公共安全', count: 1704 },
+    { name: '食安', count: 1317 },
+    { name: '治安', count: 1286 },
+    { name: '體育', count: 1169 },
+    { name: '長照', count: 1107 },
+    { name: '經濟', count: 915 },
+    { name: '醫療', count: 829 },
+    { name: '外交', count: 391 },
+  ],
+  byMood: [
+    { name: '生氣', code: 'angry', count: 20983 },
+    { name: '擔憂', code: 'worried', count: 19206 },
+    { name: '無力', code: 'helpless', count: 11113 },
+    { name: '關心', code: 'caring', count: 10998 },
+    { name: '期待', code: 'hopeful', count: 4450 },
+    { name: '正面', code: 'positive', count: 4150 },
+  ],
+  byDate: {"2026-09-24":130,"2026-09-25":6355,"2026-09-26":6304,"2026-09-27":6302,"2026-09-28":6186,"2026-09-29":6117,"2026-09-30":6130,"2026-10-01":5966,"2026-10-02":6005,"2026-10-03":5899,"2026-10-04":1409,"2026-10-05":507,"2026-10-06":826,"2026-10-07":584,"2026-10-08":627,"2026-10-09":688,"2026-10-10":627,"2026-10-11":990,"2026-10-12":983,"2026-10-13":917,"2026-10-14":794,"2026-10-15":978,"2026-10-16":716,"2026-10-17":609,"2026-10-18":660,"2026-10-19":525,"2026-10-20":430,"2026-10-21":541,"2026-10-22":686,"2026-10-23":741,"2026-10-24":645,"2026-10-25":23},
+  byDistrict: [
+    { code: 'daan', name: '大安', count: 10416 },
+    { code: 'xinyi', name: '信義', count: 7238 },
+    { code: 'wenshan', name: '文山', count: 6889 },
+    { code: 'zhongshan', name: '中山', count: 6646 },
+    { code: 'zhongzheng', name: '中正', count: 6384 },
+    { code: 'shilin', name: '士林', count: 6193 },
+    { code: 'neihu', name: '內湖', count: 5902 },
+    { code: 'wanhua', name: '萬華', count: 5480 },
+    { code: 'songshan', name: '松山', count: 5440 },
+    { code: 'beitou', name: '北投', count: 4204 },
+    { code: 'datong', name: '大同', count: 3542 },
+    { code: 'nangang', name: '南港', count: 2566 },
+  ],
+  keywords: {
+    '環境': [['垃圾桶',2344],['垃圾',2159],['老鼠',1819],['公園',1251],['城市',1145],['蟑螂',1044],['人行道',1006],['改善',954],['二手',684],['市容',647]],
+    '交通': [['公車',2247],['行人',1773],['交通',1644],['人行道',1548],['機車',1498],['改善',1175],['危險',978],['安全',954],['騎樓',889],['捷運',852]],
+    '其他': [['沈伯洋',673],['市民',576],['加油',477],['台灣',375],['政策',358],['當選',283],['洋流',239],['租屋',203],['動物',189],['支持',191]],
+    '城市修繕': [['人行道',1009],['改善',617],['修繕',501],['馬路',465],['路面',452],['公園',416],['施工',362],['路燈',305],['騎樓',289],['設施',275]],
+    '教育': [['老師',618],['孩子',506],['學生',501],['學校',485],['教育',409],['營養',309],['午餐',291],['特教',231],['幼兒園',198],['國中',182]],
+    '市政': [['市民',344],['市府',282],['政策',218],['公務員',130],['政府',125],['沈伯洋',194],['預算',103],['行政',102],['透明',96],['效率',88]],
+    '勞工': [['薪水',347],['工作',336],['加班',289],['勞工',277],['公司',253],['老闆',192],['雇主',156],['權益',148],['基本工資',138],['低薪',127]],
+    '育兒': [['孩子',427],['公托',264],['幼兒園',257],['托育',235],['公幼',225],['補助',191],['生育',177],['學校',154],['費用',143],['名額',138]],
+    '文化': [['台北',266],['文化',255],['活動',212],['藝術',176],['圖書館',163],['空間',161],['表演',142],['市民',132],['場地',124],['音樂',118]],
+    '觀光': [['台北',289],['觀光',250],['夜市',209],['旅遊',175],['國際',163],['城市',155],['遊客',141],['美食',137],['特色',126],['景點',118]],
+    '公共安全': [['安全',297],['路口',198],['行人',186],['監視器',168],['危險',165],['改善',148],['公共',137],['消防',121],['設施',113],['違規',108]],
+    '食安': [['食安',198],['營養',186],['午餐',172],['食品',168],['檢查',154],['學校',137],['餐廳',126],['衛生',118],['標示',108],['添加物',97]],
+    '治安': [['安全',189],['警察',178],['詐騙',167],['監視器',145],['犯罪',127],['毒品',114],['巡邏',108],['報案',96],['治安',93],['取締',89]],
+    '體育': [['運動',193],['場地',168],['泳池',145],['公園',134],['設施',127],['球場',118],['健身',108],['比賽',95],['選手',89],['體育',85]],
+    '長照': [['長照',198],['照顧',186],['老人',175],['家屬',145],['服務',137],['居家',127],['補助',118],['機構',108],['喘息',96],['失智',89]],
+    '經濟': [['房價',145],['租金',127],['物價',118],['薪資',108],['經濟',97],['補助',89],['小店',85],['商圈',78],['青年',75],['創業',68]],
+    '醫療': [['醫療',156],['醫院',137],['看病',118],['急診',108],['健保',97],['診所',89],['掛號',85],['醫生',78],['藥局',68],['長輩',65]],
+    '外交': [['雙城',89],['論壇',85],['國際',78],['台灣',75],['交流',68],['城市',65],['中國',58],['外交',55],['友好',48],['主體性',45]],
+  },
+  districtFocus: {
+    '大安': '經濟成本、都市更新、居住正義',
+    '信義': '國際化標準、大型設施、公共秩序',
+    '文山': '通勤交通、老舊社區、居住穩定',
+    '中山': '租金房價、都更進度、經濟壓力',
+    '中正': '交通動線、國際門面、遊民管理',
+    '士林': '夜市環境、觀光品質、公共安全',
+    '內湖': '交通壅塞、科技園區、通勤品質',
+    '萬華': '歷史文化、社會秩序、環境整頓',
+    '松山': '交通安全、老舊設施、市容改善',
+    '北投': '溫泉觀光、老人照護、環境維護',
+    '大同': '都市更新、危老改建、商圈活化',
+    '南港': '交通建設、產業發展、公共設施',
+  },
+  topicSamples: {"環境":[{"c":"蟑螂太多了～～～好可怕～～～～ 走在路上都沒辦法放鬆的走路跟散步","d":"文山","m":"angry"},{"c":"晚班工作人員常沒時間追垃圾車，但公設垃圾桶丟家庭垃圾又不妥，有可能像日本那樣做定點丟垃圾集中處嗎","d":"大同","m":"hopeful"},{"c":"偉大的城市都有一條河，台北得天獨厚有基隆河、淡水河，想個辦法跟新北蘇巧慧市長ㄧ起整治好，共創偉大","d":"萬華","m":"caring"},{"c":"我住加拿大多倫多,有一些不錯的多倫多社區相片想要分享你們團隊包括市区垃圾箱及改善人行道高低idea","d":"士林","m":"caring"},{"c":"夏天很熱的時候，可以有更多親水公園可以玩水嗎？","d":"南港","m":"caring"}],"公共安全":[{"c":"餐廳在蓋違建廚房時，社區有些人經由1999檢舉，結果都未見拆除","d":"內湖","m":"worried"},{"c":"台北市中原街121-135號，路邊停車加上違規並排臨停很嚴重，完全沒人行道，人車爭道非常危險。","d":"中山","m":"worried"},{"c":"防空避難所的出入口，設於一樓店家裡面。若是發生在晚上，會沒辦法進入使用。","d":"信義","m":"helpless"},{"c":"請處理4樓公寓屋頂的違建，以及這些違建加裝的鐵門，致使其他住戶在在出現災害時無法利用屋頂逃生的問題。","d":"松山","m":"angry"}],"城市修繕":[{"c":"北投中央市場重建，杜絕鼠疫，規劃地下停車場整合周邊停車，解決攤商外溢，市場再設計不要只做美觀但不實用","d":"北投","m":"caring"},{"c":"建商整合多年後失敗，即使地主取回土地，浪費的時間、重整成本與錯失的機會，究竟誰負責？政府會補助嗎","d":"信義","m":"worried"},{"c":"怎樣能讓台北市容跟日本一樣乾淨呢？","d":"萬華","m":"worried"},{"c":"都更是很好的政策，但都更後房屋稅金+地價稅金+管理費。一般收入少的市民在都更完後最大問題是~負擔不起","d":"中山","m":"helpless"},{"c":"文山木柵一代有很多沒有土地權的老芋仔巷，當地人因法規問題無法修繕房屋外觀，造成居住危險以及環境髒亂","d":"文山","m":"worried"}],"教育":[{"c":"客家跟原住民都有委員會 語言活動一堆 錢很多 而台語卻沒有！很窮啊！ 第一線台語老師也想有這些資源","d":"南港","m":"caring"},{"c":"弘道國中因為要新建校舍而拆除操場，現在剛入學學生就沒操場可用，成最倒霉一屆！權益受損又無法享受成果⋯","d":"中正","m":"helpless"},{"c":"我希望可以在國小購置眼睛驗光機器，可以提高小孩視力檢查的準確度","d":"大安","m":"positive"},{"c":"希望市長可以思慮在老師、學生、學校單位間思慮，將現在這種對老師來說很不健康的工作環境中解套","d":"松山","m":"angry"}],"交通":[{"c":"台北公有停車位供不應求，抽不到就得煩惱停車；部分停車場又有限制，只能擇一登記，每隔幾個月就得重新面對","d":"信義","m":"worried"},{"c":"1999專線一個月進線多達八萬通！要不要反省一下為什麼讓市民要一直打電話反應各種市政問題！！","d":"萬華","m":"angry"},{"c":"公館圓環拆除，及羅斯福公車專用地下道填平，是讓交通打結的主要原因。公車專用地下道不該拆除。","d":"文山","m":"helpless"},{"c":"希望可以整合台北市所有停車場的即時空位資訊","d":"中山","m":"caring"}],"市政":[{"c":"高房價讓台北生活不易。夜市都早早收攤，人也外流新北，房價高讓伙食費昂貴","d":"中山","m":"helpless"},{"c":"社會局長姚淑文，你看見剴剴了嗎？你看見家長的怒吼？","d":"萬華","m":"angry"},{"c":"很多政策可能都是下屬執行，市長如何在繁忙的公務中還能確保自己推動的政策有按照自己的目標在進行和達成","d":"內湖","m":"caring"},{"c":"我覺得 台灣行政流程 應該檢討，對於行政效率、人們、公職人員…都比較好！","d":"信義","m":"worried"}],"勞工":[{"c":"如果，你擔任市長，勞工退休金（純舊制）會不會依據勞基法辦理？","d":"文山","m":"worried"},{"c":"45-60歲市民無法再就業（資遣）的問題，有經驗但沒有發展舞台該如何解決","d":"士林","m":"worried"},{"c":"我是市府約僱人員，能請問約僱不是公務員為何不能使用勞基法保障，加班1.34 1.67都沒有，很可憐⋯","d":"信義","m":"helpless"},{"c":"新加坡推婦女重返職場AI與數位技能培訓計劃，台北市長如何推動婦女就業機會","d":"北投","m":"worried"}],"育兒":[{"c":"為什麼公立幼兒園不能在教室裝監控，我小孩還不會說話，無法表達在學校的情形","d":"大同","m":"worried"},{"c":"我孩子坐娃娃車被不當對待，我跟孩子都憂鬱症接受心理諮商，但市政府完全沒有協助任何事情","d":"中山","m":"angry"},{"c":"附近抽菸人很多，帶著嬰幼兒在小巷遇到很難繞開。也常在超商外或公園外應該禁菸的地方遇到","d":"中正","m":"worried"},{"c":"我一直在協助新手父母用sop帶寶寶，讓寶寶規律作息一覺天亮、父母不再孤單育兒","d":"松山","m":"positive"}],"文化":[{"c":"目前音樂類偏重流行音樂，古典音樂不被重視，能否讓各種音樂都有被重視的機會","d":"中正","m":"worried"},{"c":"身為旅美影視人，深知國際劇組偏好泰國；盼台北出台吸引人的國際協拍與補助政策，將台北推向世界！","d":"信義","m":"caring"},{"c":"圖書館館舍空間可以依據每個區的特色進行整修，參考北歐國家地方圖書館","d":"文山","m":"positive"},{"c":"順報可以延續發行，能否加上重要的國際新聞與觀點，讓台北市民都更有世界觀。","d":"大安","m":"positive"}],"觀光":[{"c":"台北也要像東京、濟州島一樣，有一座官方的史努比博物館！！","d":"大安","m":"caring"},{"c":"士林夜市的衰敗真的非常遺憾，觀光客來真的會驚艷台灣的夜市嗎？希望您可以想辦法回覆士林夜市的榮景","d":"士林","m":"worried"},{"c":"觀光：請不要再和外國人推夜市了好嗎？真的太髒亂、價格太高、不衛生也不代表台北好嗎？","d":"大同","m":"angry"},{"c":"龍山寺觀光客很多 如何解決周邊遊民及環境問題？我都不敢推薦國外朋友去這很可惜","d":"萬華","m":"worried"}],"食安":[{"c":"請問台北市爆發那麼多營養午餐問題，到底有沒有人要去稽核供應商？","d":"中正","m":"angry"},{"c":"身為上班族中午都是外食，真的很想要吃的健康又安心，希望市長能夠明訂相關健全的食安相關法規","d":"文山","m":"helpless"},{"c":"市長好，台北美食好吃但衛生堪憂且新聞常報食材或油品過期或有異物，讓我吃的好害怕","d":"松山","m":"worried"}],"治安":[{"c":"在台北這種人口密度極高的地方，在公眾場合非常容易遇到「性騷擾」、「偷拍」⋯等等，希望有效改善！","d":"中山","m":"angry"},{"c":"看到社會和國際性侵的案件越來越多，真的很心痛，希望可以加強法規的宣導並加重刑責","d":"士林","m":"angry"},{"c":"對偷拍性侵下三道畜生一律公布姓名照片死刑或關到65歲以上才能有效嚇阻保護受害者","d":"信義","m":"angry"}],"體育":[{"c":"請問一下，地板滾球是身障運動，不過參加的人都很認真推廣，什麼時候政府才要推廣？","d":"內湖","m":"angry"},{"c":"希望能一起規劃大同中山廊道自行車綠色路網","d":"中正","m":"caring"},{"c":"健康體育：如何以肌力體能政策促進健康老化、減輕長照與醫療負擔？","d":"萬華","m":"hopeful"},{"c":"台北市室內室外網球場地實在太少了。希望能有更多友善的網球場地。","d":"士林","m":"caring"}],"長照":[{"c":"70歲以上的老人想在台北市租套房但很多價錢合宜的社區套房卻因年齡問題不願出租","d":"中山","m":"worried"},{"c":"為何沒有安樂死的選擇呢？ 不是每個人都想被「長照」！！","d":"士林","m":"worried"},{"c":"家母目前失智住在安養機構，但我很希望可以常常去看她，希望長照機構可以以社區為單位，讓長輩可以就近照顧","d":"南港","m":"positive"}],"經濟":[{"c":"1.徵收營業店面空屋稅，讓店面租金回歸市場機制。不讓房東總是在優勢一方","d":"士林","m":"helpless"},{"c":"如何照顧傳產經濟，讓傳產在大量中國進口廉價商品中，取得生機","d":"大同","m":"angry"},{"c":"景美發展越來越艱困，人流都到裕隆城，房租上漲、沒有店家進駐，越來越多空店面變成夾娃娃機","d":"文山","m":"helpless"}],"醫療":[{"c":"陽明院區青少年親善門診未與一般門診分流，掛號曾高達200人，退休醫師仍須看診至深夜。需要正視人力不足","d":"北投","m":"angry"},{"c":"希望能夠將這次選舉用的AI帶入市府醫療院所提升市民服務","d":"大同","m":"caring"},{"c":"醫護人員真的很辛苦，有什麼政策可以改善他們的制度呢？","d":"中山","m":"worried"}],"外交":[{"c":"不確定算不算外交。 只要是市政府出來的英文，無論是活動文宣、博物館裡的解說牌、政策，都該是母語程度。","d":"士林","m":"helpless"},{"c":"可以邀請其他國家在市政或建設領域有相當權威的專家或團隊來訪問和給建議，國內外相互交流。","d":"內湖","m":"caring"},{"c":"中配來台依親小紅書甚至有攻略，希望拉長取得身份證的時間，考台灣史","d":"中正","m":"angry"}],"其他":[{"c":"萬華區莒光路等一些路段的騎樓禁止停放摩托車，但是停車格的量也不多，很不便民。","d":"萬華","m":"helpless"},{"c":"無障礙步道可以更多 讓銀髮族方便通行，如此會更樂於走出戶外","d":"北投","m":"caring"},{"c":"我是中年人在外租屋，許多租屋處都不租給老人，請問老人要如何找到合適的租屋處？","d":"士林","m":"helpless"},{"c":"請問市長，可以加入您的動保政策與真正可以落實的好方法嗎？","d":"中山","m":"helpless"}]},
+  districtSamples: {"大安":[{"c":"以前常去公館買食物，但因為在排隊時常常聞到水溝臭味，只能憋氣","t":"環境","m":"helpless"},{"c":"想問對於教育濫訴的看法，我是補教業者","t":"教育","m":"worried"}],"信義":[{"c":"世貿大樓後門區域都會聞到側門吸煙區的煙味，帶小孩從後門往捷運世貿1號走去的連通道總是避不掉二手煙害","t":"環境","m":"angry"},{"c":"台北公有停車位供不應求，抽不到就得煩惱停車","t":"交通","m":"worried"}],"文山":[{"c":"樓下鄰居開麵攤，每天熬骨頭湯、炸豬油、廚餘臭味，害我們緊閉門窗，是否有法可管？","t":"環境","m":"angry"},{"c":"檢舉達人和科技執法橫行，過度放大駕駛人小錯誤，希望能檢討這種亂象","t":"交通","m":"angry"}],"中山":[{"c":"沒有後援能在學校放學時刻協助接送的家長，要如何能安心讓尚年幼孩子自己走路回家？","t":"育兒","m":"worried"},{"c":"廣告招牌應管制、保養：避免陳舊、危險招牌林立","t":"公共安全","m":"worried"}],"中正":[{"c":"公車站在馬路中，從南昌公園到該站的兩個紅燈過一個就要等另一個，導致常在等綠燈時公車開走","t":"交通","m":"helpless"},{"c":"台灣人已對髒亂麻痹至天花板，建議仿效新加坡亂丟垃圾煙蒂放狗便重罰48000！","t":"環境","m":"hopeful"}],"士林":[{"c":"台北三毒：廁所髒、人不禮貌、市容醜亂，向日本學習公民意識","t":"環境","m":"angry"},{"c":"如果您當了市長對關渡平原有沒有什麼想法和規劃？","t":"其他","m":"positive"}],"內湖":[{"c":"許多國中生下課在安全島、騎樓人行道上騎YouBike, 按鈴要行人禮讓，甚至逆向行駛","t":"交通","m":"helpless"},{"c":"內湖湖光市場商圈附近環境已多年未更新，每到夏天都容易有異味或蟲鼠問題","t":"環境","m":"hopeful"}],"萬華":[{"c":"想知道那些被砍掉的樹，要花多久時間種回來？","t":"環境","m":"worried"},{"c":"建議在輔導體系，重用職能治療師，以參與活動為專業基礎，更能收長遠之效","t":"教育","m":"positive"}],"松山":[{"c":"我了解分段式行人紅綠燈是為了讓行人更有充裕的時間走過馬路，但不知成效如何","t":"交通","m":"worried"},{"c":"支持具體落實「休息時間對齊」政策，讓市民與家人的生活節奏一致","t":"市政","m":"positive"}],"北投":[{"c":"如果您當市長，捷運北投跟新北投支線有可能改成將新北投站當起站嗎？","t":"交通","m":"caring"},{"c":"廚餘問題要如何解決？家戶廚餘能否鼓勵獎勵家戶使用廚餘機減少廚餘","t":"環境","m":"worried"}],"大同":[{"c":"永樂市場：1樓有好幾攤日式料理，很多觀光客造成當地人民買菜的不方便","t":"其他","m":"helpless"},{"c":"麻煩市長，多跟保安宮聯合辦理活動，因為宮廟有錢但不辦活動","t":"觀光","m":"helpless"}],"南港":[{"c":"我是慢性病患者為什麼忠孝醫院公費疫苗只有上班時間，上班族怎辦","t":"其他","m":"angry"},{"c":"打造動漫人才，日本有常盤村贊助漫畫家，希望台北也有能培育動漫人才的聚落","t":"文化","m":"caring"}]},
+};
+
+function getCSS(prop) {
+  return getComputedStyle(document.documentElement).getPropertyValue(prop).trim();
+}
+
+function chartDefaults() {
+  Chart.defaults.font.family = "'Noto Sans TC', system-ui, sans-serif";
+  Chart.defaults.font.size = 12;
+  Chart.defaults.color = getCSS('--fg-secondary');
+  Chart.defaults.borderColor = getCSS('--border');
+  Chart.defaults.plugins.legend.display = false;
+  Chart.defaults.plugins.tooltip.backgroundColor = getCSS('--bg-card');
+  Chart.defaults.plugins.tooltip.titleColor = getCSS('--fg');
+  Chart.defaults.plugins.tooltip.bodyColor = getCSS('--fg-secondary');
+  Chart.defaults.plugins.tooltip.borderColor = getCSS('--border');
+  Chart.defaults.plugins.tooltip.borderWidth = 1;
+  Chart.defaults.plugins.tooltip.cornerRadius = 6;
+  Chart.defaults.plugins.tooltip.padding = 10;
+}
+
+function renderTopicChart() {
+  const ctx = document.getElementById('topicChart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: DATA.byTopic.map(t => t.name),
+      datasets: [{
+        data: DATA.byTopic.map(t => t.count),
+        backgroundColor: getCSS('--accent'),
+        borderRadius: { topRight: 4, bottomRight: 4 },
+        barThickness: 18,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { grid: { color: getCSS('--border') }, ticks: { callback: v => v >= 1000 ? (v/1000)+'K' : v } },
+        y: { grid: { display: false } }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: { label: ctx => ctx.parsed.x.toLocaleString() + ' 則' }
+        }
+      }
+    }
+  });
+}
+
+function renderMoodChart() {
+  const moodColors = DATA.byMood.map(m => getCSS('--mood-' + m.code));
+  const ctx = document.getElementById('moodChart');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: DATA.byMood.map(m => m.name),
+      datasets: [{
+        data: DATA.byMood.map(m => m.count),
+        backgroundColor: moodColors,
+        borderColor: getCSS('--bg-card'),
+        borderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '55%',
+      plugins: {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: { usePointStyle: true, pointStyle: 'rectRounded', padding: 12, font: { size: 11 } }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const pct = (ctx.parsed / DATA.byMood.reduce((s,m) => s+m.count, 0) * 100).toFixed(1);
+              return ctx.parsed.toLocaleString() + ' 則 (' + pct + '%)';
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+function renderTimelineChart() {
+  const dates = Object.keys(DATA.byDate);
+  const counts = Object.values(DATA.byDate);
+  const ctx = document.getElementById('timelineChart');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: dates.map(d => d.slice(5)),
+      datasets: [{
+        data: counts,
+        borderColor: getCSS('--accent'),
+        backgroundColor: getCSS('--accent') + '18',
+        fill: true,
+        tension: 0.3,
+        borderWidth: 2,
+        pointRadius: 0,
+        pointHitRadius: 12,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: getCSS('--accent'),
+        pointHoverBorderColor: getCSS('--bg-card'),
+        pointHoverBorderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: { grid: { display: false }, ticks: { maxTicksLimit: 10 } },
+        y: { grid: { color: getCSS('--border') }, ticks: { callback: v => v >= 1000 ? (v/1000)+'K' : v }, beginAtZero: true }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: { label: ctx => ctx.parsed.y.toLocaleString() + ' 則' }
+        }
+      }
+    }
+  });
+}
+
+function renderDistrictChart() {
+  const ctx = document.getElementById('districtChart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: DATA.byDistrict.map(d => d.name),
+      datasets: [{
+        data: DATA.byDistrict.map(d => d.count),
+        backgroundColor: getCSS('--aqua'),
+        borderRadius: { topLeft: 4, topRight: 4 },
+        barThickness: 28,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { grid: { display: false } },
+        y: { grid: { color: getCSS('--border') }, ticks: { callback: v => v >= 1000 ? (v/1000)+'K' : v }, beginAtZero: true }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: { label: ctx => ctx.parsed.y.toLocaleString() + ' 則' }
+        }
+      }
+    }
+  });
+}
+
+const MOOD_LABELS = {angry:'生氣',worried:'擔憂',helpless:'無力',caring:'關心',hopeful:'期待',positive:'正面'};
+
+function makeQuoteEl(text, meta, mood) {
+  const q = document.createElement('div');
+  q.className = 'quote';
+  const t = document.createElement('div');
+  t.className = 'quote-text';
+  t.textContent = text;
+  const m = document.createElement('div');
+  m.className = 'quote-meta';
+  const dot = document.createElement('span');
+  dot.className = 'mood-dot ' + mood;
+  m.appendChild(dot);
+  const label = document.createElement('span');
+  label.textContent = meta;
+  m.appendChild(label);
+  q.appendChild(t);
+  q.appendChild(m);
+  return q;
+}
+
+function renderKeywords() {
+  const tabs = document.getElementById('kwTabs');
+  const content = document.getElementById('kwContent');
+  const topics = Object.keys(DATA.keywords);
+
+  topics.forEach((topic, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = topic;
+    btn.addEventListener('click', () => {
+      tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      content.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.getElementById('kw-' + i).classList.add('active');
+    });
+    tabs.appendChild(btn);
+
+    const div = document.createElement('div');
+    div.className = 'tab-content' + (i === 0 ? ' active' : '');
+    div.id = 'kw-' + i;
+    const topicData = DATA.byTopic.find(t => t.name === topic);
+    const countLabel = topicData ? ` (${topicData.count.toLocaleString()} 則)` : '';
+
+    const header = document.createElement('div');
+    header.className = 'kw-section';
+    const titleEl = document.createElement('div');
+    titleEl.className = 'kw-topic';
+    titleEl.textContent = topic;
+    const countEl = document.createElement('span');
+    countEl.className = 'count';
+    countEl.textContent = countLabel;
+    titleEl.appendChild(countEl);
+    header.appendChild(titleEl);
+
+    const pills = document.createElement('div');
+    pills.className = 'kw-pills';
+    DATA.keywords[topic].forEach(([word, count]) => {
+      const pill = document.createElement('span');
+      pill.className = 'kw-pill';
+      pill.textContent = word;
+      const n = document.createElement('span');
+      n.className = 'n';
+      n.textContent = count.toLocaleString();
+      pill.appendChild(n);
+      pills.appendChild(pill);
+    });
+    header.appendChild(pills);
+    div.appendChild(header);
+
+    const samples = DATA.topicSamples[topic];
+    if (samples && samples.length) {
+      const qLabel = document.createElement('h3');
+      qLabel.textContent = '市民心聲';
+      qLabel.style.cssText = 'margin:0.75rem 0 0.5rem;font-size:0.85rem;';
+      div.appendChild(qLabel);
+      const quotes = document.createElement('div');
+      quotes.className = 'quotes';
+      samples.forEach(s => {
+        quotes.appendChild(makeQuoteEl(s.c, s.d + '・' + (MOOD_LABELS[s.m]||s.m), s.m));
+      });
+      div.appendChild(quotes);
+    }
+
+    content.appendChild(div);
+  });
+}
+
+function renderDistrictTable() {
+  const tbody = document.getElementById('districtTableBody');
+  const total = DATA.byDistrict.reduce((s, d) => s + d.count, 0);
+  DATA.byDistrict.forEach(d => {
+    const tr = document.createElement('tr');
+    tr.className = 'district-expand';
+    const pct = (d.count / total * 100).toFixed(1) + '%';
+    const focus = DATA.districtFocus[d.name] || '';
+    const hasSamples = DATA.districtSamples[d.name];
+
+    const tdName = document.createElement('td');
+    if (hasSamples) {
+      const arrow = document.createElement('span');
+      arrow.className = 'toggle-arrow';
+      arrow.textContent = '▶';
+      tdName.appendChild(arrow);
+    }
+    const nameSpan = document.createTextNode(d.name);
+    tdName.appendChild(nameSpan);
+    tr.appendChild(tdName);
+
+    const tdCount = document.createElement('td');
+    tdCount.className = 'num';
+    tdCount.textContent = d.count.toLocaleString();
+    tr.appendChild(tdCount);
+
+    const tdPct = document.createElement('td');
+    tdPct.className = 'num';
+    tdPct.textContent = pct;
+    tr.appendChild(tdPct);
+
+    const tdFocus = document.createElement('td');
+    tdFocus.textContent = focus;
+    tr.appendChild(tdFocus);
+
+    tbody.appendChild(tr);
+
+    if (hasSamples) {
+      const qtr = document.createElement('tr');
+      qtr.className = 'district-quotes';
+      const qtd = document.createElement('td');
+      qtd.colSpan = 4;
+      const quotes = document.createElement('div');
+      quotes.className = 'quotes';
+      hasSamples.forEach(s => {
+        quotes.appendChild(makeQuoteEl(s.c, s.t + '・' + (MOOD_LABELS[s.m]||s.m), s.m));
+      });
+      qtd.appendChild(quotes);
+      qtr.appendChild(qtd);
+      tbody.appendChild(qtr);
+
+      tr.addEventListener('click', () => { tr.classList.toggle('open'); });
+    }
+  });
+}
+
+chartDefaults();
+renderTopicChart();
+renderMoodChart();
+renderTimelineChart();
+renderDistrictChart();
+renderKeywords();
+renderDistrictTable();
+</script>
