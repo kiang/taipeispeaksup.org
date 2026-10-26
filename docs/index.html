@@ -179,6 +179,35 @@
   .district-expand.open + .district-quotes { display: table-row; }
   .toggle-arrow { display: inline-block; transition: transform 0.2s; font-size: 0.7rem; margin-right: 4px; color: var(--fg-muted); }
   .district-expand.open .toggle-arrow { transform: rotate(90deg); }
+
+  /* heatmap table */
+  .heatmap-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+  .heatmap-table th { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 2px solid var(--border); color: var(--fg-muted); font-weight: 500; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .heatmap-table td { padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border); color: var(--fg-secondary); vertical-align: middle; }
+  .heatmap-table .num { text-align: right; }
+  .heatmap-bar { display: flex; height: 18px; border-radius: 3px; overflow: hidden; gap: 1px; min-width: 120px; }
+  .heatmap-bar .seg { height: 100%; min-width: 2px; transition: opacity 0.15s; cursor: default; position: relative; }
+  .heatmap-bar .seg:hover { opacity: 0.8; }
+  .mood-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 0.75rem; }
+
+  /* voices cards */
+  .voice-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+  .voice-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.875rem 1rem; }
+  .voice-card-content { font-size: 0.85rem; color: var(--fg-secondary); line-height: 1.5; margin-bottom: 0.5rem; }
+  .voice-card-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 0.7rem; color: var(--fg-muted); }
+  .voice-card-meta .tag { background: var(--accent-light); color: var(--accent); padding: 1px 8px; border-radius: 100px; }
+
+  /* top3 */
+  .top3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+  .top3-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .top3-rank { font-size: 1.5rem; font-weight: 900; color: var(--accent); min-width: 2rem; text-align: center; }
+  .top3-name { font-weight: 700; color: var(--fg); }
+  .top3-count { font-size: 0.8rem; color: var(--fg-muted); }
+
+  /* live status */
+  .live-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--fg-muted); margin-left: auto; }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #1baf7a; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 </style>
 </head>
 <body>
@@ -189,11 +218,13 @@
     <a href="issues.html">全部意見</a>
   </nav>
   <h1>台北市民意見分析報告</h1>
-  <p class="subtitle">資料來源：<a href="https://taipeispeaksup.org/" target="_blank" rel="noopener">市長你給我聽好了</a> ｜ 分析日期：2026-10-26 ｜ 70,900 則市民意見</p>
+  <p class="subtitle">資料來源：<a href="https://taipeispeaksup.org/" target="_blank" rel="noopener">市長你給我聽好了</a> ｜ 分析日期：2026-10-26 ｜ <span id="liveTotal">70,900</span> 則市民意見</p>
 
-  <div class="stats">
-    <div class="stat"><div class="stat-value">70,900</div><div class="stat-label">總意見數</div></div>
-    <div class="stat"><div class="stat-value">37,830</div><div class="stat-label">參與市民</div></div>
+  <div class="stats" id="statTiles">
+    <div class="stat"><div class="stat-value" id="statPublished">70,900</div><div class="stat-label">總意見數</div></div>
+    <div class="stat"><div class="stat-value" id="statParticipants">37,838</div><div class="stat-label">參與市民</div></div>
+    <div class="stat"><div class="stat-value" id="statToday">—</div><div class="stat-label">今日提交</div></div>
+    <div class="stat"><div class="stat-value" id="statApproved">—</div><div class="stat-label">今日審核通過</div></div>
     <div class="stat"><div class="stat-value">18</div><div class="stat-label">議題類別</div></div>
     <div class="stat"><div class="stat-value">12</div><div class="stat-label">行政區</div></div>
   </div>
@@ -229,6 +260,22 @@
     <h3>各行政區意見數量</h3>
     <div class="chart-container district"><canvas id="districtChart"></canvas></div>
   </div>
+
+  <!-- District heatmap -->
+  <h2>各行政區議題熱度</h2>
+  <div class="overflow-x">
+    <table class="heatmap-table" id="heatmapTable">
+      <thead><tr><th>行政區</th><th class="num">意見數</th><th class="num">參與者</th><th>主要情緒</th><th>議題分布</th></tr></thead>
+      <tbody id="heatmapBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Latest voices -->
+  <h2>本週熱議 TOP 3</h2>
+  <div class="top3" id="top3Container"></div>
+
+  <h2>市民心聲精選</h2>
+  <div class="voice-grid" id="voiceGrid"></div>
 
   <!-- Top 5 findings -->
   <h2>五大結構性議題</h2>
@@ -655,6 +702,165 @@ function renderDistrictTable() {
   });
 }
 
+const DISTRICT_NAMES = {
+  zhongzheng:'中正',datong:'大同',wanhua:'萬華',xinyi:'信義',nangang:'南港',
+  neihu:'內湖',daan:'大安',zhongshan:'中山',songshan:'松山',shilin:'士林',
+  beitou:'北投',wenshan:'文山'
+};
+
+const TOPIC_COLORS = {
+  traffic:'#2a78d6',environment:'#1baf7a',repair:'#eb6834',education:'#6250d6',
+  labor:'#c98500',childcare:'#d55181',culture:'#008300',safety:'#e87ba4',
+  foodsafety:'#c57b00',eldercare:'#8a8a82',sports:'#2a78d6',economy:'#eb6834',
+  medical:'#d93526',tourism:'#1baf7a',publicorder:'#6250d6',cityadmin:'#c98500',
+  diplomacy:'#d55181',other:'#8a8a82'
+};
+
+async function loadLive() {
+  try {
+    const resp = await fetch('data/live.json');
+    const live = await resp.json();
+    const c = live.counts;
+    document.getElementById('statPublished').textContent = c.published_total.toLocaleString();
+    document.getElementById('liveTotal').textContent = c.published_total.toLocaleString();
+    document.getElementById('statParticipants').textContent = live.cumulative_participants.toLocaleString();
+    document.getElementById('statToday').textContent = c.submitted_today.toLocaleString();
+    document.getElementById('statApproved').textContent = c.approved_today.toLocaleString();
+  } catch(e) {}
+}
+
+async function loadHeatmap() {
+  try {
+    const resp = await fetch('data/heatmap.json');
+    const data = await resp.json();
+    const tbody = document.getElementById('heatmapBody');
+
+    data.districts.sort((a,b) => b.total_issues - a.total_issues);
+
+    data.districts.forEach(d => {
+      const tr = document.createElement('tr');
+
+      const tdName = document.createElement('td');
+      tdName.textContent = DISTRICT_NAMES[d.district] || d.district;
+      tdName.style.fontWeight = '600';
+      tr.appendChild(tdName);
+
+      const tdIssues = document.createElement('td');
+      tdIssues.className = 'num';
+      tdIssues.textContent = d.total_issues.toLocaleString();
+      tr.appendChild(tdIssues);
+
+      const tdVisitors = document.createElement('td');
+      tdVisitors.className = 'num';
+      tdVisitors.textContent = d.total_visitors.toLocaleString();
+      tr.appendChild(tdVisitors);
+
+      const tdMood = document.createElement('td');
+      const badge = document.createElement('span');
+      badge.className = 'mood-badge';
+      const dot = document.createElement('span');
+      dot.className = 'mood-dot ' + d.top_mood.code;
+      badge.appendChild(dot);
+      badge.appendChild(document.createTextNode(d.top_mood.name));
+      tdMood.appendChild(badge);
+      tr.appendChild(tdMood);
+
+      const tdBar = document.createElement('td');
+      const bar = document.createElement('div');
+      bar.className = 'heatmap-bar';
+      const topTopics = d.topics.slice(0, 6);
+      const otherShare = 1 - topTopics.reduce((s,t) => s + t.share, 0);
+      topTopics.forEach(t => {
+        const seg = document.createElement('div');
+        seg.className = 'seg';
+        seg.style.width = (t.share * 100) + '%';
+        seg.style.background = TOPIC_COLORS[t.topic_code] || '#8a8a82';
+        seg.title = t.name + ' ' + t.issue_count.toLocaleString() + ' 則 (' + (t.share * 100).toFixed(1) + '%)';
+        bar.appendChild(seg);
+      });
+      if (otherShare > 0.01) {
+        const seg = document.createElement('div');
+        seg.className = 'seg';
+        seg.style.width = (otherShare * 100) + '%';
+        seg.style.background = getCSS('--fg-muted');
+        seg.style.opacity = '0.3';
+        seg.title = '其他 (' + (otherShare * 100).toFixed(1) + '%)';
+        bar.appendChild(seg);
+      }
+      tdBar.appendChild(bar);
+      tr.appendChild(tdBar);
+
+      tbody.appendChild(tr);
+    });
+  } catch(e) {}
+}
+
+async function loadVoices() {
+  try {
+    const resp = await fetch('data/voices.json');
+    const data = await resp.json();
+
+    // Top 3
+    const top3 = document.getElementById('top3Container');
+    data.top_topics.forEach((t, i) => {
+      const item = document.createElement('div');
+      item.className = 'top3-item';
+      const rank = document.createElement('div');
+      rank.className = 'top3-rank';
+      rank.textContent = '#' + (i + 1);
+      item.appendChild(rank);
+      const info = document.createElement('div');
+      const name = document.createElement('div');
+      name.className = 'top3-name';
+      name.textContent = t.name;
+      info.appendChild(name);
+      const count = document.createElement('div');
+      count.className = 'top3-count';
+      count.textContent = t.count.toLocaleString() + ' 則（本週）';
+      info.appendChild(count);
+      item.appendChild(info);
+      top3.appendChild(item);
+    });
+
+    // Voice cards — show all voices from by_district.all
+    const grid = document.getElementById('voiceGrid');
+    const voices = data.by_district.all || [];
+    voices.forEach(v => {
+      const card = document.createElement('div');
+      card.className = 'voice-card';
+      const content = document.createElement('div');
+      content.className = 'voice-card-content';
+      content.textContent = v.content;
+      card.appendChild(content);
+      const meta = document.createElement('div');
+      meta.className = 'voice-card-meta';
+      if (v.district) {
+        const tag = document.createElement('span');
+        tag.className = 'tag';
+        tag.textContent = v.district;
+        meta.appendChild(tag);
+      }
+      if (v.topic) {
+        const tag = document.createElement('span');
+        tag.className = 'tag';
+        tag.textContent = v.topic;
+        meta.appendChild(tag);
+      }
+      if (v.mood) {
+        const dot = document.createElement('span');
+        dot.className = 'mood-dot ' + v.mood;
+        meta.appendChild(dot);
+        meta.appendChild(document.createTextNode(MOOD_LABELS[v.mood] || v.mood));
+      }
+      if (v.label) {
+        meta.appendChild(document.createTextNode(v.label));
+      }
+      card.appendChild(meta);
+      grid.appendChild(card);
+    });
+  } catch(e) {}
+}
+
 chartDefaults();
 renderTopicChart();
 renderMoodChart();
@@ -662,6 +868,9 @@ renderTimelineChart();
 renderDistrictChart();
 renderKeywords();
 renderDistrictTable();
+loadLive();
+loadHeatmap();
+loadVoices();
 </script>
 </body>
 </html>
