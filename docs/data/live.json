@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-24T17:31:31+00:00",
+  "kill_switch": false,
+  "stage_open": true,
+  "counts": {
+    "submitted_today": 23,
+    "reviewing": 0,
+    "approved_today": 22,
+    "waiting": 1,
+    "published_total": 70900,
+    "rejected_today": 1
+  },
+  "cumulative_participants": 37838
+}
