@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>全部意見 — 市長你給我聽好了</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+  :root {
+    --bg: #fafaf8;
+    --bg-card: #ffffff;
+    --fg: #1a1a1a;
+    --fg-secondary: #555550;
+    --fg-muted: #8a8a82;
+    --border: #e8e8e2;
+    --accent: #2a78d6;
+    --accent-light: #e8f0fb;
+    --mood-angry: #d93526;
+    --mood-worried: #eb6834;
+    --mood-helpless: #8a8a82;
+    --mood-caring: #1baf7a;
+    --mood-hopeful: #2a78d6;
+    --mood-positive: #c98500;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #141413;
+      --bg-card: #1e1e1c;
+      --fg: #eaeae6;
+      --fg-secondary: #b0b0a8;
+      --fg-muted: #78786e;
+      --border: #2e2e2a;
+      --accent: #3987e5;
+      --accent-light: #1c2a3e;
+      --mood-angry: #e04636;
+      --mood-worried: #d95926;
+      --mood-helpless: #78786e;
+      --mood-caring: #199e70;
+      --mood-hopeful: #3987e5;
+      --mood-positive: #c98500;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #141413;
+    --bg-card: #1e1e1c;
+    --fg: #eaeae6;
+    --fg-secondary: #b0b0a8;
+    --fg-muted: #78786e;
+    --border: #2e2e2a;
+    --accent: #3987e5;
+    --accent-light: #1c2a3e;
+    --mood-angry: #e04636;
+    --mood-worried: #d95926;
+    --mood-helpless: #78786e;
+    --mood-caring: #199e70;
+    --mood-hopeful: #3987e5;
+    --mood-positive: #c98500;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: 'Noto Sans TC', system-ui, sans-serif;
+    margin: 0; padding: 0 16px; line-height: 1.6;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding-block: 1rem; }
+  a { color: var(--accent); text-decoration: none; }
+
+  /* nav */
+  .site-nav { display: flex; align-items: center; gap: 1.5rem; padding: 0.75rem 0; margin-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .site-nav .nav-brand { font-weight: 900; font-size: 1rem; color: var(--fg); text-decoration: none; }
+  .site-nav a { color: var(--fg-secondary); text-decoration: none; font-size: 0.875rem; }
+  .site-nav a:hover { color: var(--accent); }
+  .site-nav a.active { color: var(--accent); font-weight: 700; }
+
+  h1 { font-size: 1.5rem; font-weight: 900; margin: 0 0 0.5rem; }
+  .subtitle { color: var(--fg-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+
+  /* filters */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; align-items: center; }
+  .filter-group { display: flex; flex-wrap: wrap; gap: 6px; }
+  .filter-btn { background: none; border: 1px solid var(--border); border-radius: 100px; padding: 4px 14px; font-size: 0.8rem; font-family: inherit; color: var(--fg-secondary); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .filter-btn .count { font-size: 0.7rem; color: var(--fg-muted); margin-left: 4px; }
+  .filter-btn.active .count { color: rgba(255,255,255,0.7); }
+
+  .search-box { display: flex; gap: 8px; flex: 1; min-width: 200px; }
+  .search-box input { flex: 1; padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-card); color: var(--fg); font-family: inherit; font-size: 0.85rem; outline: none; }
+  .search-box input:focus { border-color: var(--accent); }
+  .search-box input::placeholder { color: var(--fg-muted); }
+
+  /* district filter */
+  .district-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+
+  /* mood filter */
+  .mood-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+
+  /* status bar */
+  .status { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; font-size: 0.8rem; color: var(--fg-muted); font-variant-numeric: tabular-nums; }
+
+  /* issue list */
+  .issue-list { display: flex; flex-direction: column; gap: 2px; }
+  .issue { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem 1rem; }
+  .issue-content { color: var(--fg-secondary); font-size: 0.875rem; line-height: 1.5; }
+  .issue-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; font-size: 0.7rem; color: var(--fg-muted); align-items: center; }
+  .issue-meta .tag { background: var(--accent-light); color: var(--accent); padding: 1px 8px; border-radius: 100px; font-size: 0.7rem; }
+  .mood-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
+  .mood-dot.angry { background: var(--mood-angry); }
+  .mood-dot.worried { background: var(--mood-worried); }
+  .mood-dot.helpless { background: var(--mood-helpless); }
+  .mood-dot.caring { background: var(--mood-caring); }
+  .mood-dot.hopeful { background: var(--mood-hopeful); }
+  .mood-dot.positive { background: var(--mood-positive); }
+
+  /* pagination */
+  .pagination { display: flex; justify-content: center; gap: 4px; margin: 1.5rem 0; flex-wrap: wrap; }
+  .page-btn { background: none; border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; font-family: inherit; font-size: 0.8rem; color: var(--fg-secondary); cursor: pointer; font-variant-numeric: tabular-nums; }
+  .page-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .page-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .page-btn:disabled { opacity: 0.3; cursor: default; }
+
+  /* loading */
+  .loading { text-align: center; padding: 3rem; color: var(--fg-muted); }
+  .spinner { display: inline-block; width: 24px; height: 24px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.6s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="site-nav">
+    <a href="./" class="nav-brand">市長你給我聽好了</a>
+    <a href="./">分析報告</a>
+    <a href="issues.html" class="active">全部意見</a>
+  </nav>
+
+  <h1>全部市民意見</h1>
+  <p class="subtitle" id="totalLabel">載入中...</p>
+
+  <div class="filters">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="搜尋關鍵字...">
+    </div>
+  </div>
+
+  <div class="filter-group" id="topicFilters"></div>
+  <div class="district-filters" id="districtFilters"></div>
+  <div class="mood-filters" id="moodFilters"></div>
+
+  <div class="status" id="statusBar">
+    <span id="resultCount"></span>
+    <span id="pageInfo"></span>
+  </div>
+
+  <div id="issueList" class="issue-list">
+    <div class="loading"><div class="spinner"></div><p>載入資料中...</p></div>
+  </div>
+
+  <div class="pagination" id="pagination"></div>
+</div>
+
+<script>
+const DISTRICT_NAMES = {
+  daan:'大安',xinyi:'信義',wenshan:'文山',zhongshan:'中山',zhongzheng:'中正',
+  shilin:'士林',neihu:'內湖',wanhua:'萬華',songshan:'松山',beitou:'北投',
+  datong:'大同',nangang:'南港'
+};
+const MOOD_LABELS = {angry:'生氣',worried:'擔憂',helpless:'無力',caring:'關心',hopeful:'期待',positive:'正面'};
+const PER_PAGE = 50;
+
+let allTopics = [];
+let currentData = [];
+let filteredData = [];
+let currentTopic = null;
+let currentDistrict = null;
+let currentMood = null;
+let currentSearch = '';
+let currentPage = 1;
+
+async function init() {
+  const resp = await fetch('data/topics.json');
+  allTopics = await resp.json();
+
+  renderTopicFilters();
+  renderDistrictFilters();
+  renderMoodFilters();
+
+  document.getElementById('totalLabel').textContent =
+    `共 ${allTopics.reduce((s,t) => s+t.count, 0).toLocaleString()} 則意見，點選類別載入`;
+
+  document.getElementById('searchInput').addEventListener('input', debounce(() => {
+    currentSearch = document.getElementById('searchInput').value.trim();
+    currentPage = 1;
+    applyFilters();
+  }, 300));
+
+  // Load first topic by default
+  await loadTopic(allTopics[0]);
+}
+
+function debounce(fn, ms) {
+  let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
+}
+
+function renderTopicFilters() {
+  const container = document.getElementById('topicFilters');
+  allTopics.forEach(topic => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.textContent = topic.name;
+    const countSpan = document.createElement('span');
+    countSpan.className = 'count';
+    countSpan.textContent = topic.count.toLocaleString();
+    btn.appendChild(countSpan);
+    btn.addEventListener('click', () => loadTopic(topic));
+    btn.dataset.code = topic.code;
+    container.appendChild(btn);
+  });
+}
+
+function renderDistrictFilters() {
+  const container = document.getElementById('districtFilters');
+  const allBtn = document.createElement('button');
+  allBtn.className = 'filter-btn active';
+  allBtn.textContent = '全部地區';
+  allBtn.addEventListener('click', () => { currentDistrict = null; currentPage = 1; applyFilters(); updateDistrictActive(); });
+  allBtn.dataset.code = 'all';
+  container.appendChild(allBtn);
+
+  Object.entries(DISTRICT_NAMES).forEach(([code, name]) => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.textContent = name;
+    btn.dataset.code = code;
+    btn.addEventListener('click', () => { currentDistrict = code; currentPage = 1; applyFilters(); updateDistrictActive(); });
+    container.appendChild(btn);
+  });
+}
+
+function renderMoodFilters() {
+  const container = document.getElementById('moodFilters');
+  const allBtn = document.createElement('button');
+  allBtn.className = 'filter-btn active';
+  allBtn.textContent = '全部情緒';
+  allBtn.addEventListener('click', () => { currentMood = null; currentPage = 1; applyFilters(); updateMoodActive(); });
+  allBtn.dataset.code = 'all';
+  container.appendChild(allBtn);
+
+  Object.entries(MOOD_LABELS).forEach(([code, name]) => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    const dot = document.createElement('span');
+    dot.className = 'mood-dot ' + code;
+    dot.style.marginRight = '4px';
+    btn.appendChild(dot);
+    btn.appendChild(document.createTextNode(name));
+    btn.dataset.code = code;
+    btn.addEventListener('click', () => { currentMood = code; currentPage = 1; applyFilters(); updateMoodActive(); });
+    container.appendChild(btn);
+  });
+}
+
+function updateTopicActive() {
+  document.querySelectorAll('#topicFilters .filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.code === (currentTopic ? currentTopic.code : null));
+  });
+}
+
+function updateDistrictActive() {
+  document.querySelectorAll('#districtFilters .filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.code === (currentDistrict || 'all'));
+  });
+}
+
+function updateMoodActive() {
+  document.querySelectorAll('#moodFilters .filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.code === (currentMood || 'all'));
+  });
+}
+
+async function loadTopic(topic) {
+  currentTopic = topic;
+  currentPage = 1;
+  currentDistrict = null;
+  currentMood = null;
+  currentSearch = '';
+  document.getElementById('searchInput').value = '';
+  updateTopicActive();
+  updateDistrictActive();
+  updateMoodActive();
+
+  document.getElementById('issueList').innerHTML = '<div class="loading"><div class="spinner"></div><p>載入 ' + topic.name + ' (' + topic.count.toLocaleString() + ' 則)...</p></div>';
+
+  const resp = await fetch('data/' + topic.file);
+  currentData = await resp.json();
+  document.getElementById('totalLabel').textContent =
+    `共 ${allTopics.reduce((s,t) => s+t.count, 0).toLocaleString()} 則意見`;
+  applyFilters();
+}
+
+function applyFilters() {
+  filteredData = currentData;
+  if (currentDistrict) {
+    filteredData = filteredData.filter(i => i.d === currentDistrict);
+  }
+  if (currentMood) {
+    filteredData = filteredData.filter(i => i.m === currentMood);
+  }
+  if (currentSearch) {
+    const q = currentSearch.toLowerCase();
+    filteredData = filteredData.filter(i => i.c.toLowerCase().includes(q) || (i.n && i.n.toLowerCase().includes(q)));
+  }
+  renderPage();
+}
+
+function renderPage() {
+  const total = filteredData.length;
+  const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
+  if (currentPage > totalPages) currentPage = totalPages;
+  const start = (currentPage - 1) * PER_PAGE;
+  const page = filteredData.slice(start, start + PER_PAGE);
+
+  document.getElementById('resultCount').textContent = `${total.toLocaleString()} 則結果`;
+  document.getElementById('pageInfo').textContent = `第 ${currentPage} / ${totalPages} 頁`;
+
+  const list = document.getElementById('issueList');
+  list.innerHTML = '';
+
+  if (page.length === 0) {
+    list.innerHTML = '<div class="loading"><p>沒有符合條件的意見</p></div>';
+  } else {
+    const frag = document.createDocumentFragment();
+    page.forEach(issue => {
+      const div = document.createElement('div');
+      div.className = 'issue';
+
+      const content = document.createElement('div');
+      content.className = 'issue-content';
+      content.textContent = issue.c;
+      div.appendChild(content);
+
+      const meta = document.createElement('div');
+      meta.className = 'issue-meta';
+
+      if (issue.d) {
+        const distTag = document.createElement('span');
+        distTag.className = 'tag';
+        distTag.textContent = DISTRICT_NAMES[issue.d] || issue.d;
+        meta.appendChild(distTag);
+      }
+
+      if (issue.m) {
+        const dot = document.createElement('span');
+        dot.className = 'mood-dot ' + issue.m;
+        meta.appendChild(dot);
+        const moodLabel = document.createElement('span');
+        moodLabel.textContent = MOOD_LABELS[issue.m] || issue.m;
+        meta.appendChild(moodLabel);
+      }
+
+      if (issue.n) {
+        const name = document.createElement('span');
+        name.textContent = issue.n;
+        meta.appendChild(name);
+      }
+
+      if (issue.s) {
+        const time = document.createElement('span');
+        try {
+          const d = new Date(issue.s);
+          time.textContent = d.toLocaleDateString('zh-TW') + ' ' + d.toLocaleTimeString('zh-TW', {hour:'2-digit',minute:'2-digit'});
+        } catch(e) {
+          time.textContent = issue.s;
+        }
+        meta.appendChild(time);
+      }
+
+      div.appendChild(meta);
+      frag.appendChild(div);
+    });
+    list.appendChild(frag);
+  }
+
+  renderPagination(totalPages);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderPagination(totalPages) {
+  const container = document.getElementById('pagination');
+  container.innerHTML = '';
+  if (totalPages <= 1) return;
+
+  const addBtn = (text, page, disabled) => {
+    const btn = document.createElement('button');
+    btn.className = 'page-btn' + (page === currentPage ? ' active' : '');
+    btn.textContent = text;
+    btn.disabled = disabled;
+    if (!disabled && page !== currentPage) {
+      btn.addEventListener('click', () => { currentPage = page; renderPage(); });
+    }
+    container.appendChild(btn);
+  };
+
+  addBtn('‹', currentPage - 1, currentPage <= 1);
+
+  let pages = [];
+  if (totalPages <= 9) {
+    for (let i = 1; i <= totalPages; i++) pages.push(i);
+  } else {
+    pages = [1];
+    let start = Math.max(2, currentPage - 2);
+    let end = Math.min(totalPages - 1, currentPage + 2);
+    if (start > 2) pages.push('...');
+    for (let i = start; i <= end; i++) pages.push(i);
+    if (end < totalPages - 1) pages.push('...');
+    pages.push(totalPages);
+  }
+
+  pages.forEach(p => {
+    if (p === '...') {
+      const span = document.createElement('span');
+      span.className = 'page-btn';
+      span.textContent = '…';
+      span.style.border = 'none';
+      span.style.cursor = 'default';
+      container.appendChild(span);
+    } else {
+      addBtn(String(p), p, false);
+    }
+  });
+
+  addBtn('›', currentPage + 1, currentPage >= totalPages);
+}
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+[
+  {
+    "code": "environment",
+    "name": "環境",
+    "count": 16291,
+    "file": "issues_environment.json"
+  },
+  {
+    "code": "traffic",
+    "name": "交通",
+    "count": 15402,
+    "file": "issues_traffic.json"
+  },
+  {
+    "code": "other",
+    "name": "其他",
+    "count": 7252,
+    "file": "issues_other.json"
+  },
+  {
+    "code": "repair",
+    "name": "城市修繕",
+    "count": 6588,
+    "file": "issues_repair.json"
+  },
+  {
+    "code": "education",
+    "name": "教育",
+    "count": 3756,
+    "file": "issues_education.json"
+  },
+  {
+    "code": "cityadmin",
+    "name": "市政",
+    "count": 2942,
+    "file": "issues_cityadmin.json"
+  },
+  {
+    "code": "labor",
+    "name": "勞工",
+    "count": 2755,
+    "file": "issues_labor.json"
+  },
+  {
+    "code": "childcare",
+    "name": "育兒",
+    "count": 2511,
+    "file": "issues_childcare.json"
+  },
+  {
+    "code": "culture",
+    "name": "文化",
+    "count": 2346,
+    "file": "issues_culture.json"
+  },
+  {
+    "code": "tourism",
+    "name": "觀光",
+    "count": 2339,
+    "file": "issues_tourism.json"
+  },
+  {
+    "code": "safety",
+    "name": "公共安全",
+    "count": 1704,
+    "file": "issues_safety.json"
+  },
+  {
+    "code": "foodsafety",
+    "name": "食安",
+    "count": 1317,
+    "file": "issues_foodsafety.json"
+  },
+  {
+    "code": "publicorder",
+    "name": "治安",
+    "count": 1286,
+    "file": "issues_publicorder.json"
+  },
+  {
+    "code": "sports",
+    "name": "體育",
+    "count": 1169,
+    "file": "issues_sports.json"
+  },
+  {
+    "code": "eldercare",
+    "name": "長照",
+    "count": 1107,
+    "file": "issues_eldercare.json"
+  },
+  {
+    "code": "economy",
+    "name": "經濟",
+    "count": 915,
+    "file": "issues_economy.json"
+  },
+  {
+    "code": "medical",
+    "name": "醫療",
+    "count": 829,
+    "file": "issues_medical.json"
+  },
+  {
+    "code": "diplomacy",
+    "name": "外交",
+    "count": 391,
+    "file": "issues_diplomacy.json"
+  }
+]
